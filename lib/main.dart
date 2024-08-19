@@ -1,5 +1,8 @@
+import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'core/routes_manager/route_generator.dart';
 
 void main() {
   runApp(const MainApp());
@@ -16,12 +19,16 @@ class MainApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) =>  MaterialApp(
-            home: child ),
-        child : const Scaffold(
-          body: Center(
-            child: Text('Hello World!'),
-          ),
-        )
+          debugShowCheckedModeBanner: false,
+          home: child,
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.homeRoute,
+        ),
+        // child : const Scaffold(
+        //   body: Center(
+        //     child: Text('Hello World!'),
+        //   ),
+        // )
     );
   }
 }

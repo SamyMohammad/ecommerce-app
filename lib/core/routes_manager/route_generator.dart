@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/core/routes_manager/routes.dart';
+import 'package:ecommerce_app/features/presentation/home/screen/home_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -7,7 +9,8 @@ class RouteGenerator {
       // TODO: Add Routes
       // case Routes.loginRoute:
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
-
+      case Routes.homeRoute:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       default:
         return unDefinedRoute();
     }
