@@ -12,16 +12,16 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430, 932),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) => const MaterialApp(
-          home: child ),
-      child : const Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ) 
+        designSize: const Size(430, 932),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) =>  MaterialApp(
+            home: child ),
+        child : const Scaffold(
+          body: Center(
+            child: Text('Hello World!'),
+          ),
+        )
     );
   }
 }
