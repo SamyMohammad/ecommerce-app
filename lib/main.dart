@@ -17,9 +17,17 @@ class MainApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) =>  MaterialApp(
             home: child ),
-        child : const Scaffold(
+        child :  const Scaffold(
           body: Center(
-            child: Text('Hello World!'),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(child: SizedBox()),
+                  ],
+                ),
+              ],
+            ),
           ),
         )
     );
