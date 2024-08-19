@@ -16,11 +16,12 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => const MaterialApp(
-          home: Scaffold(
+          home: child ),
+      child : const Scaffold(
         body: Center(
           child: Text('Hello World!'),
         ),
-      )),
+      ) 
     );
   }
 }
