@@ -4,11 +4,12 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.3.4
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +18,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+fonts:
+  family: Poppins
+  fonts:
+    - assets: assets/fonts/Poppins-.ttf
