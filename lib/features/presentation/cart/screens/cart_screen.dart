@@ -3,7 +3,9 @@ import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/features/presentation/cart/widgets/cart_item_widget.dart';
+import 'package:ecommerce_app/features/presentation/cart/widgets/total_price_and_checkout_botton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -56,10 +58,16 @@ class CartScreen extends StatelessWidget {
                   colorName: 'Black',
                 ),
                 separatorBuilder: (context, index) =>
-                    const SizedBox(height: AppSize.s14),
+                    SizedBox(height: AppSize.s14.h),
                 itemCount: 2,
               ),
             ),
+            // the total price and checkout button========
+            TotalPriceAndCheckoutBotton(
+              totalPrice: 1200,
+              checkoutButtonOnTap: () {},
+            ),
+            SizedBox(height: 10.h),
           ],
         ),
       ),
