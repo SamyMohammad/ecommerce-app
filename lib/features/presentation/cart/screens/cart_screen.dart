@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
+import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/features/presentation/cart/widgets/cart_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class CartScreen extends StatelessWidget {
@@ -33,6 +35,33 @@ class CartScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(AppPadding.p14),
+        child: Column(
+          children: [
+            Expanded(
+              // the list of cart items ===============
+              child: ListView.separated(
+                itemBuilder: (context, index) => CartItemWidget(
+                  imagePath: ImageAssets.categoryCardImage,
+                  title: 'Nike Air Jordon',
+                  price: 1500,
+                  quantity: 1,
+                  onDeleteTap: () {},
+                  onDecrementTap: (value) {},
+                  onIncrementTap: (value) {},
+                  size: 40,
+                  color: Colors.black,
+                  colorName: 'Black',
+                ),
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: AppSize.s14),
+                itemCount: 2,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
