@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
+import 'package:ecommerce_app/features/presentation/cart/screens/cart_screen.dart';
 import 'package:ecommerce_app/features/presentation/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,8 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => HomeScreen());
+      case Routes.cartRoute:
+        return MaterialPageRoute(builder: (_) => CartScreen());
       default:
         return unDefinedRoute();
     }
