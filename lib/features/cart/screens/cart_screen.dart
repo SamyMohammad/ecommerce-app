@@ -47,8 +47,8 @@ class CartScreen extends StatelessWidget {
               child: ListView.separated(
                 itemBuilder: (context, index) => CartItemWidget(
                   imagePath: ImageAssets.categoryCardImage,
-                  title: 'Nike Air Jordon',
-                  price: 1500,
+                  title: 'Nike Air Jordon' * 2,
+                  price: 15008487587,
                   quantity: 1,
                   onDeleteTap: () {},
                   onDecrementTap: (value) {},

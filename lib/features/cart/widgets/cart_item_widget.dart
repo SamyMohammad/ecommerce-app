@@ -36,7 +36,7 @@ class CartItemWidget extends StatelessWidget {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     return Container(
-      height: isPortrait ? 165.h : 100.w,
+      height: isPortrait ? 135.h : 100.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(color: ColorManager.primary.withOpacity(0.3)),
@@ -52,42 +52,46 @@ class CartItemWidget extends StatelessWidget {
           child: Image.asset(
             imagePath,
             fit: BoxFit.cover,
-            height: isPortrait ? 165.h : 100.w,
+            height: isPortrait ? 140.h : 100.w,
             width: isPortrait ? 130.w : 165.w,
           ),
         ),
-        SizedBox(width: 8.w),
+        // SizedBox(width: 8.w),
         // display details product=========================
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(7),
+            padding: const EdgeInsets.all(9),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 // title and delete button ==
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: getMediumStyle(
-                        color: ColorManager.textColor,
-                        fontSize: AppSize.s18.sp,
+                    Expanded(
+                      child: Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: getMediumStyle(
+                          color: ColorManager.textColor,
+                          fontSize: AppSize.s18.sp,
+                        ),
                       ),
                     ),
-                    IconButton(
-                      onPressed: onDeleteTap,
-                      icon: ImageIcon(
-                        const AssetImage(IconsAssets.icDelete),
+                    InkWell(
+                      onTap: onDeleteTap,
+                      child: Image.asset(
+                        IconsAssets.icDelete,
                         color: ColorManager.textColor,
-                        size: 24.h,
+                        height: 24.h,
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 6.h),
+
+                SizedBox(height: 7.h),
 
                 // display color and size===================
                 ColorAndSizeCartItem(
@@ -95,16 +99,19 @@ class CartItemWidget extends StatelessWidget {
                   colorName: colorName,
                   size: size,
                 ),
-                SizedBox(height: 6.h),
+                SizedBox(height: 7.h),
                 // display price and quantity =================
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'EGP $price',
-                      style: getMediumStyle(
-                          color: ColorManager.textColor,
-                          fontSize: AppSize.s18.sp),
+                    Expanded(
+                      child: Text(
+                        'EGP $price',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: getMediumStyle(
+                            color: ColorManager.textColor,
+                            fontSize: AppSize.s18.sp),
+                      ),
                     ),
                     ProductCounter(
                       add: onIncrementTap,
