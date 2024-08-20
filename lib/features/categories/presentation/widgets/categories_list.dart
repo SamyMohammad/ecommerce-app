@@ -20,25 +20,28 @@ class _CategoriesListState extends State<CategoriesList> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: ClipRRect(
-          // clip the corners of the container that hold the list view
-          borderRadius:const BorderRadius.only(
-            topLeft: Radius.circular(AppSize.s12),
-            bottomLeft: Radius.circular(AppSize.s12),
-            bottomRight: Radius.circular(AppSize.s12),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              color: ColorManager.containerGray,
-              border: Border(
-                // set the border for only 3 sides
-                top: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3)),
-                left: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3)),
-                bottom: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3))
-              ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: ColorManager.containerGray,
+            border: Border(
+              // set the border for only 3 sides
+              top: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3)),
+              left: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3)),
+              bottom: BorderSide(width: AppSize.s2 , color: ColorManager.primary.withOpacity(0.3))
             ),
+            borderRadius:const BorderRadius.only(
+              topLeft: Radius.circular(AppSize.s12),
+              bottomLeft: Radius.circular(AppSize.s12),
+            ),
+          ),
 
-            // the categories items list
+          // the categories items list
+          child: ClipRRect(
+            // clip the corners of the container that hold the list view
+            borderRadius:const BorderRadius.only(
+              topLeft: Radius.circular(AppSize.s12),
+              bottomLeft: Radius.circular(AppSize.s12),
+            ),
             child: ListView.builder(
               itemCount: 20,
               itemBuilder: (context, index) =>
