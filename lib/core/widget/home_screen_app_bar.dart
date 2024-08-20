@@ -13,7 +13,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return AppBar(
       surfaceTintColor: Colors.white,
-      title: SvgPicture.asset(SVGAssets.routeLogo),
+      title: SvgPicture.asset(SvgAssets.routeLogo),
       bottom: PreferredSize(
           preferredSize: const Size(AppSize.s100, AppSize.s60),
           child: Padding(

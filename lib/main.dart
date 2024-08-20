@@ -22,7 +22,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: child,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.homeRoute,
+          initialRoute: Routes.signInRoute,
         ),
         child : const Scaffold(
           body: Center(

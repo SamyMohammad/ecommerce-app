@@ -52,11 +52,11 @@ class CategoryCardItem extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
-                              padding: WidgetStateProperty.all(
+                              padding: MaterialStateProperty.all(
                                   const EdgeInsets.all(AppPadding.p12)),
                               backgroundColor:
-                                  WidgetStateProperty.all(ColorManager.primary),
-                              shape: WidgetStateProperty.all(
+                              MaterialStateProperty.all(ColorManager.primary),
+                              shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(AppSize.s8)))),

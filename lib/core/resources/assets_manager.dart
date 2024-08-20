@@ -4,9 +4,15 @@ const String iconsPath = "assets/icons";
 const String svgPath = "assets/svg_images";
 
 class ImageAssets {
-  static const String splashLogo = "$imagePath/splash_logo.png";
+  static const String routeLogo = "$imagePath/splash_logo.png";
   static const String categoryCardImage = "$imagePath/category_card_image.png";
   static const String subcategoryCardImage = "$imagePath/sub_category_card_image.png";
+}
+
+class SvgAssets{
+  static const String routeLogo = "$svgPath/route.svg";
+  static const String eye = "$svgPath/Eye.svg";
+  static const String edit = "$svgPath/edit (1) 5.svg";
 }
 
 class IconsAssets{
@@ -25,11 +31,7 @@ class IconsAssets{
   static String get icSearch => _icSearch;
 }
 
-class SVGAssets{
-  static const String _routeLogo = "assets/svg_images/route_logo.svg";
 
-  static String get routeLogo => _routeLogo;
-}
 
 class JsonAssets {
   static const String loading = "$jsonPath/loading.json";
