@@ -3,9 +3,10 @@ import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/font_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/categories_tap/widgets/category_card_item.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/categories_tap/widgets/sub_category_item.dart';
+import 'package:ecommerce_app/features/categories/presentation/widgets/category_card_item.dart';
 import 'package:flutter/material.dart';
+
+import 'sub_category_item.dart';
 
 class SubCategoriesList extends StatelessWidget {
   const SubCategoriesList({super.key});

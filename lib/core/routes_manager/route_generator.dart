@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/screen/main_layout.dart';
+import 'package:ecommerce_app/features/main_layout/screen/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {

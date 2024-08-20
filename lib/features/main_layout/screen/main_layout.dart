@@ -1,10 +1,7 @@
 
 import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/categories_tap/screen/categories_tab.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/home_tap/screen/home_tab.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/profile_tab/screen/profile_tab.dart';
-import 'package:ecommerce_app/features/presentation/main%20layout/tabs/wish_list_tab/screen/wish_list_tab.dart';
+import 'package:ecommerce_app/features/categories/presentation/screen/categories_tab.dart';
 import 'package:flutter/material.dart';
 
 class MainLayout extends StatefulWidget {
@@ -16,7 +13,7 @@ class MainLayout extends StatefulWidget {
 
 class _MainLayoutState extends State<MainLayout> {
   int currentIndex = 0;
-  List<Widget> tabs = const [HomeTab() , CategoriesTab() , WishListTab() , ProfileTab()];
+  List<Widget> tabs = const [CategoriesTab() , CategoriesTab() , CategoriesTab() , CategoriesTab()];
   @override
   Widget build(BuildContext context) {
 
