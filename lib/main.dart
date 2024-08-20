@@ -24,11 +24,11 @@ class MainApp extends StatelessWidget {
           onGenerateRoute: RouteGenerator.getRoute,
           initialRoute: Routes.homeRoute,
         ),
-        // child : const Scaffold(
-        //   body: Center(
-        //     child: Text('Hello World!'),
-        //   ),
-        // )
+        child : const Scaffold(
+          body: Center(
+            child: Text('Hello World!'),
+          ),
+        )
     );
   }
 }
