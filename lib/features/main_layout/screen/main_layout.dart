@@ -34,10 +34,10 @@ class _MainLayoutState extends State<MainLayout> {
             showUnselectedLabels: false, // Hide unselected item labels
             items: [
               // Build BottomNavigationBarItem widgets for each tab
-              buildBottomNavigationBarItem(IconsAssets.icHome, "Home"),
-              buildBottomNavigationBarItem(IconsAssets.icCategory, "Category"),
-              buildBottomNavigationBarItem(IconsAssets.icWithList, "WishList"),
-              buildBottomNavigationBarItem(IconsAssets.icProfile, "Profile"),
+              CustomBottomNavBarItem(IconsAssets.icHome, "Home"),
+              CustomBottomNavBarItem(IconsAssets.icCategory, "Category"),
+              CustomBottomNavBarItem(IconsAssets.icWithList, "WishList"),
+              CustomBottomNavBarItem(IconsAssets.icProfile, "Profile"),
             ],
           ),
         ));
@@ -49,20 +49,25 @@ class _MainLayoutState extends State<MainLayout> {
     });
   }
 
-  // Helper function to create a BottomNavigationBarItem
-  BottomNavigationBarItem buildBottomNavigationBarItem(
-      String iconPath, String title) {
-    return BottomNavigationBarItem(
-        label: title, // Label for accessibility (not displayed)
-        activeIcon: CircleAvatar(
-            backgroundColor: ColorManager.white, // Background of active icon
-            child: ImageIcon(
-              AssetImage(iconPath ),
-              color: ColorManager.primary,// Active icon imagecolor: ColorManager.primary, // Active icon color
-            )),
-        icon: ImageIcon(
-          AssetImage(iconPath), // Inactive icon image
-          color: ColorManager.white, // Inactive icon color
-        ));
-  }
 }
+
+class CustomBottomNavBarItem extends BottomNavigationBarItem{
+
+  String iconPath;
+  String title;
+  CustomBottomNavBarItem(this.iconPath , this.title):super(
+    label: title,
+    icon: ImageIcon(
+      AssetImage(iconPath), // Inactive icon image
+      color: ColorManager.white, // Inactive icon color
+    ),
+    activeIcon: CircleAvatar(
+        backgroundColor: ColorManager.white, // Background of active icon
+        child: ImageIcon(
+          AssetImage(iconPath ),
+          color: ColorManager.primary,// Active icon imagecolor: ColorManager.primary, // Active icon color
+        )),
+  );
+
+}
+
