@@ -22,7 +22,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: child,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.cartRoute,
+          initialRoute: Routes.homeRoute,
         ),
         child : const Scaffold(
           body: Center(
