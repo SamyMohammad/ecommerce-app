@@ -10,7 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
+  flutter_slidable: ^3.1.1
+  cached_network_image: ^3.4.0
+  auto_size_text: ^3.0.0
+  colornames: ^0.1.0
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -19,7 +24,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-fonts:
-  family: Poppins
+  assets:
+    - assets/images/
+
   fonts:
-    - assets: assets/fonts/Poppins-.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-.ttf

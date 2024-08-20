@@ -1,140 +1,83 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/Domain_Layer/Entities/product_response_entity.dart';
-import 'package:e_commerce/Ui_Layer/Utils/my_colors.dart';
+import 'package:ecommerce_app/core/resources/color_manager.dart';
+import 'package:ecommerce_app/core/resources/constants_manager.dart';
+import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/favorite_screen/widgets/product_details.dart';
+import 'package:ecommerce_app/shared_widgets/custom_button.dart';
+import 'package:ecommerce_app/shared_widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../Domain_Layer/dependency_injection.dart';
-import '../../Products_Tab/Cubit/products_tab_view_model.dart';
-
 class FavoriteItem extends StatelessWidget {
-  FavoriteItem({super.key, required this.product});
+  const FavoriteItem({
+    super.key,
+    required this.product
+  });
 
-  ProductEntity? product;
-
-  ProductTabViewModel viewModel = ProductTabViewModel(
-      productsUseCase: injectGetAllProductsUseCase(),
-      addToCartUseCase: injectAddToCartUseCase());
+final   Product product ;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.r),
-          border: Border.all(color: MyColors.lightGreyColor, width: 1.w)),
-      width: 398.w,
-      height: 113.h,
-      child: Row(
-        children: [
-          ClipRRect(
-            clipBehavior: Clip.antiAlias,
-            borderRadius: BorderRadius.circular(15.r),
-            child: CachedNetworkImage(
-              width: 130.w,
-              height: 113.h,
-              fit: BoxFit.fill,
-              imageUrl: product?.imageCover ?? "",
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(
-                  color: MyColors.yellowColor,
-                ),
-              ),
-              errorWidget: (context, url, error) => const Icon(
-                Icons.error,
-                color: MyColors.redColor,
-              ),
-            ),
-          ),
-          Expanded(
-              child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 16.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          product?.title ?? "",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                                  fontSize: 16.sp,
-                                  color: MyColors.primaryColor,
-                                  fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.favorite_rounded,
-                        color: MyColors.primaryColor,
-                      )
-                    ],
+    return InkWell(
+      onTap: () {
+        //TODO: navigate to details Screen
+      },
+      child: Container(
+        height: AppSize.s120.h,
+        padding: EdgeInsets.only(right: AppSize.s8.w),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSize.s16.r),
+            border: Border.all(color: ColorManager.primary, width: AppSize.s1.w)),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              clipBehavior: Clip.antiAlias,
+              borderRadius: BorderRadius.circular(AppSize.s16.r),
+              child: CachedNetworkImage(
+                width: AppSize.s120.w,
+                height: AppSize.s120.h,
+                fit: BoxFit.fill,
+                imageUrl:
+                    product.imageUrl,
+                placeholder: (context, url) => Center(
+                  child: CircularProgressIndicator(
+                    color: ColorManager.primary,
                   ),
                 ),
-                Flexible(
-                  child: Text("Color : null",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: MyColors.primaryColor,
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500)),
+                errorWidget: (context, url, error) => Icon(
+                  Icons.error,
+                  color: ColorManager.primary,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        "Egp : ${product?.price}",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(
-                                fontSize: 16.sp,
-                                color: MyColors.primaryColor,
-                                fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        viewModel.addProductToCart(product?.id ?? "");
-                      },
-                      child: Container(
-                        height: 36,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                          color: MyColors.primaryColor,
-                          borderRadius: BorderRadius.circular(100.r),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Add To Cart",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                    color: MyColors.whiteColor),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+              ),
+            ),
+            Expanded(
+                child: Flexible(
+                  child: Padding(
+                      padding: EdgeInsets.only(left: AppSize.s4.w),
+                      child:  ProductDetails(
+                        product: product
+                       
+                      )),
+                )),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                 CustomIconButton(isFavorite: true , onTap: () {
+                  //TODO:add or remove product to/from favorite list 
+                },),
+                CustomButton(
+                  onPressed: () {
+                 //TODO:add product to cart  
+
+                  },
+                  text: AppConstants.addToCart,
                 )
               ],
-            ),
-          ))
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
