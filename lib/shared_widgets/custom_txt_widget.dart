@@ -20,15 +20,13 @@ class CustomTextWgt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: AutoSizeText(
-        
-        data,
-        softWrap: true,
-        overflow: TextOverflow.ellipsis,
-        maxLines: maxLines,
-        style: textStyle,
-      ),
+    return AutoSizeText(
+      
+      data,
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
+      maxLines: maxLines,
+      style: textStyle,
     );
   }
 }

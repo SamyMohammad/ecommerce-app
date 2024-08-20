@@ -15,8 +15,8 @@ class CustomIconButton extends StatelessWidget {
       onTap: onTap,
       child: Image.asset(
         isFavorite ?  ImageAssets.favoriteIcon : ImageAssets.notFavoriteIcon,
-        height: AppSize.s60.h,
-        width: AppSize.s60.w,
+        height: AppSize.s40.h,
+        width: AppSize.s40.w,
         fit: BoxFit.fill,
       ),
     );

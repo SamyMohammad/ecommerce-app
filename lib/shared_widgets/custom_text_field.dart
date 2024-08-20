@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextField extends StatelessWidget {
   final void Function(String)? onChange;
   final String? hintText ;
-    final IconData? prefixIcon ;
+    final Widget? prefixIcon ;
 
 
   const CustomTextField({ this.onChange, this.prefixIcon , this.hintText ,  super.key});
@@ -33,13 +33,16 @@ class CustomTextField extends StatelessWidget {
           hintStyle: TextStyle(
               fontSize: AppSize.s14.sp,
               fontWeight: FontWeight.normal,
-              color: ColorManager.primary),
+              color: ColorManager.primaryDark.withOpacity(.6)),
           hintText: hintText,
-          prefixIcon: prefixIcon == null ? null : Icon(
-                prefixIcon,
-                size: AppSize.s28.sp,
-                color: ColorManager.primary.withOpacity(0.75),
-              )
+          
+          prefixIcon: prefixIcon == null ? null : Padding(
+
+            padding:  EdgeInsets.only(left: AppSize.s14.w),
+            child: 
+                  prefixIcon,
+                
+          )
         ));
   }
 
@@ -49,6 +52,6 @@ class CustomTextField extends StatelessWidget {
           color: ColorManager.primary,
           width: AppSize.s1,
         ),
-        borderRadius: BorderRadius.circular(AppSize.s40.r));
+        borderRadius: BorderRadius.circular(AppSize.s28.r));
   }
 }

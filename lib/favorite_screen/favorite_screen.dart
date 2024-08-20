@@ -17,7 +17,7 @@ class FavoriteScreen extends StatelessWidget {
       backgroundColor: ColorManager.white,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+        padding: EdgeInsets.symmetric(horizontal: AppSize.s20.w, vertical: AppSize.s20.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,14 +34,14 @@ class FavoriteScreen extends StatelessWidget {
               },
             ),
             SizedBox(
-              height: AppSize.s16.h,
+              height: AppSize.s8.h,
             ),
             Expanded(
                 child: ListView.builder(
               itemCount: AppConstants.favoriteProducts.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(vertical: AppSize.s20.h),
+                  padding: EdgeInsets.symmetric(vertical: AppSize.s12.h),
                   child: Slidable(
                     key: ValueKey<int>(index),
                     startActionPane: ActionPane(

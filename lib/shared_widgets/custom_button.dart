@@ -16,8 +16,10 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-            minimumSize: Size.zero, 
-    padding: EdgeInsets.symmetric(vertical: AppSize.s14.h , horizontal: AppSize.s8.w), 
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSize.s16.r)
+        ),
+    padding: EdgeInsets.symmetric(vertical: AppSize.s14.h , horizontal: AppSize.s10.w),
         backgroundColor: ColorManager.primary
       ),
         onPressed: onPressed,
@@ -26,7 +28,7 @@ class CustomButton extends StatelessWidget {
           data: text,
          fontSize: AppSize.s8.sp,
           textStyle:
-              getSemiBoldStyle(color: ColorManager.white )
+              getRegularStyle(color: ColorManager.white )
         ));
   }
 }

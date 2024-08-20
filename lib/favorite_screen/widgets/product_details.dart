@@ -23,7 +23,7 @@ class ProductDetails extends StatelessWidget {
         CustomTextWgt(
           data: product.title,
           textStyle: getSemiBoldStyle(
-              color: ColorManager.primary, fontSize: AppSize.s14.sp),
+              color: ColorManager.primaryDark, fontSize: AppSize.s14.sp),
         ),
         Row(
           children: [
@@ -37,7 +37,7 @@ class ProductDetails extends StatelessWidget {
             CustomTextWgt(
               data: product.color.colorName,
               textStyle: getRegularStyle(
-                  color: ColorManager.primary, fontSize: AppSize.s12.sp),
+                  color: ColorManager.primaryDark, fontSize: AppSize.s12.sp),
             ),
           ],
         ),
@@ -46,17 +46,17 @@ class ProductDetails extends StatelessWidget {
             CustomTextWgt(
               data: 'EGP: ${product.finalPrice}  ',
               textStyle: getSemiBoldStyle(
-                  color: ColorManager.primary, fontSize: AppSize.s14.sp),
+                  color: ColorManager.primaryDark, fontSize: AppSize.s14.sp),
             ),
             product.salePrice == null
                 ? const SizedBox.shrink()
                 : CustomTextWgt(
                     data: 'EGP: ${product.salePrice}',
-                    textStyle: getMediumStyle(color: ColorManager.primary)
+                    textStyle: getMediumStyle(color: ColorManager.primaryDark)
                         .copyWith(
-
                             decoration: TextDecoration.lineThrough,
-                            color: ColorManager.primary , fontSize: AppSize.s8.sp)),
+                            color: ColorManager.primaryDark,
+                            fontSize: AppSize.s8.sp)),
           ],
         ),
       ],

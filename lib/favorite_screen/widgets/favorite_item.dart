@@ -13,9 +13,7 @@ class FavoriteItem extends StatelessWidget {
     super.key,
     required this.product
   });
-
-final   Product product ;
-
+final  Product product ;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -23,43 +21,44 @@ final   Product product ;
         //TODO: navigate to details Screen
       },
       child: Container(
-        height: AppSize.s120.h,
+        height: AppSize.s135.h,
         padding: EdgeInsets.only(right: AppSize.s8.w),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppSize.s16.r),
-            border: Border.all(color: ColorManager.primary, width: AppSize.s1.w)),
+            border: Border.all(color: ColorManager.primary.withOpacity(.3))),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClipRRect(
-              clipBehavior: Clip.antiAlias,
-              borderRadius: BorderRadius.circular(AppSize.s16.r),
-              child: CachedNetworkImage(
-                width: AppSize.s120.w,
-                height: AppSize.s120.h,
-                fit: BoxFit.fill,
-                imageUrl:
-                    product.imageUrl,
-                placeholder: (context, url) => Center(
-                  child: CircularProgressIndicator(
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(AppSize.s16.r),
+                border: Border.all(color: ColorManager.primary.withOpacity(.3))
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(AppSize.s16.r),
+                        child: CachedNetworkImage(
+                  width: AppSize.s120.w,
+                  height: AppSize.s135.h,
+                  fit: BoxFit.fill,
+                  imageUrl: product.imageUrl,
+                  placeholder: (context, url) => Center(
+                    child: CircularProgressIndicator(
+                      color: ColorManager.primary,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
                     color: ColorManager.primary,
                   ),
-                ),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error,
-                  color: ColorManager.primary,
                 ),
               ),
             ),
             Expanded(
-                child: Flexible(
-                  child: Padding(
-                      padding: EdgeInsets.only(left: AppSize.s4.w),
-                      child:  ProductDetails(
-                        product: product
-                       
-                      )),
-                )),
+                child: Padding(
+                    padding: EdgeInsets.only(left: AppSize.s4.w),
+                    child:  ProductDetails(
+                      product: product
+                    ))),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -69,8 +68,7 @@ final   Product product ;
                 },),
                 CustomButton(
                   onPressed: () {
-                 //TODO:add product to cart  
-
+                 //TODO:add product to cart
                   },
                   text: AppConstants.addToCart,
                 )

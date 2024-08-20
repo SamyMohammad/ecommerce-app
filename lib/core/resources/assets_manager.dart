@@ -7,7 +7,10 @@ class ImageAssets {
   static const String shoppingCart = "$imagePath/shopping_cart.png";
   static const String favoriteIcon = "$imagePath/favorite.png";
   static const String notFavoriteIcon = "$imagePath/not_favorite.png";
+    static const String searchIcon = "$imagePath/search.png";
+
 }
+
 
 class JsonAssets {
   static const String loading = "$jsonPath/loading.json";

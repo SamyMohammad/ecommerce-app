@@ -15,13 +15,13 @@ class FavSearchCartRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: AppSize.s18.h),
+      padding: EdgeInsets.only(top: AppSize.s18.h),
       child: Row(
-        children: [
+        children:  [
           const Expanded(
             child: CustomTextField(
                 hintText: AppConstants.searchHint,
-                prefixIcon: Icons.search,
+                prefixIcon: ImageIcon(AssetImage(ImageAssets.searchIcon)),
                 onChange: null),
           ),
           SizedBox(width: AppSize.s20.w),
