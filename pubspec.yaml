@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -17,7 +18,12 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/svg_images/
 
 fonts:
   family: Poppins
