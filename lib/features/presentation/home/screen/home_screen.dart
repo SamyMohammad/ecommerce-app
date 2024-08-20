@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        extendBody: true,
+        extendBody: false,
         body: tabs[currentIndex],
         bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.only(
