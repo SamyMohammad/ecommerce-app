@@ -1,6 +1,6 @@
 name: ecommerce_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
+  flutter_native_splash: ^2.4.1
   readmore: ^3.0.0
   smooth_page_indicator: ^1.2.0+3
 
