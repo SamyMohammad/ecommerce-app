@@ -67,7 +67,7 @@ class _BuildTextFieldState extends State<BuildTextField> {
         widget.label != null
             ? Padding(
                 padding: const EdgeInsets.only(
-                    left: AppPadding.p12, top: AppPadding.p2),
+                     top: AppPadding.p2),
                 child: Text(
                   widget.label!,
                   style: widget.labelTextStyle ??
