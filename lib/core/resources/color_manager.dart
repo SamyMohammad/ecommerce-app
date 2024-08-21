@@ -8,6 +8,7 @@ class ColorManager {
   static Color black = const Color(0xff000000);
   static Color containerGray = const Color(0xffDBE4ED);
   static Color darkBlue = const Color(0xff06004F);
+  static const Color starRateColor = Color(0XFFFDD835);
 
   // new colors
   static Color darkPrimary = const Color(0xffd17d11);
