@@ -6,10 +6,14 @@ const String svgPath = "assets/svg_images";
 class ImageAssets {
   static const String splashLogo = "$imagePath/splash_logo.png";
   static const String categoryCardImage = "$imagePath/category_card_image.png";
-  static const String subcategoryCardImage = "$imagePath/sub_category_card_image.png";
+  static const String subcategoryCardImage =
+      "$imagePath/sub_category_card_image.png";
+  static const String carouselSlider1 = "$imagePath/CarouselSlider1.png";
+  static const String carouselSlider2 = "$imagePath/CarouselSlider2.png";
+  static const String carouselSlider3 = "$imagePath/CarouselSlider3.png";
 }
 
-class IconsAssets{
+class IconsAssets {
   static const String _icCategory = "$iconsPath/ic_category.png";
   static const String _icHome = "$iconsPath/ic_home.png";
   static const String _icProfile = "$iconsPath/ic_profile.png";
@@ -25,7 +29,7 @@ class IconsAssets{
   static String get icSearch => _icSearch;
 }
 
-class SVGAssets{
+class SVGAssets {
   static const String _routeLogo = "assets/svg_images/route_logo.svg";
 
   static String get routeLogo => _routeLogo;
