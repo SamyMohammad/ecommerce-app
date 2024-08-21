@@ -14,6 +14,7 @@ dependencies:
   cached_network_image: ^3.4.0
   auto_size_text: ^3.0.0
   colornames: ^0.1.0
+  flutter_svg: ^2.0.10+1
 
   
 dev_dependencies:
@@ -22,7 +23,12 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/svg_images/
 
   assets:
     - assets/images/
