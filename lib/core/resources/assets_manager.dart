@@ -13,6 +13,7 @@ class ImageAssets {
   static const String carouselSlider3 = "$imagePath/CarouselSlider3.png";
   static const String categoryHomeImage = "$imagePath/category_image.jpg";
   static const String brandHomeImage = "$imagePath/brands_section_image.png";
+  static const String productImage = "$imagePath/product_image.png";
 }
 
 class IconsAssets {

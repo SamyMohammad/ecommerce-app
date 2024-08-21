@@ -4,7 +4,7 @@ import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomCard extends StatelessWidget {
+class CustomProductWidget extends StatelessWidget {
   final double width;
   final double height;
   final String image;
@@ -14,7 +14,7 @@ class CustomCard extends StatelessWidget {
   final double discountPercentage;
   final double rating;
 
-  const CustomCard({
+  const CustomProductWidget({
     super.key,
     required this.width,
     required this.height,
@@ -79,7 +79,7 @@ class CustomCard extends StatelessWidget {
                 //   image,
                 //   fit: BoxFit.cover,
                 // ),
-                Image.asset(image, fit: BoxFit.cover),
+                Image.asset(image, fit: BoxFit.fill),
                 Positioned(
                   top: height * 0.01,
                   right: width * 0.02,
