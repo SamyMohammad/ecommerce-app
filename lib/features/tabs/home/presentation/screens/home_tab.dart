@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/core/resources/color_manager.dart';
-import 'package:ecommerce_app/core/resources/styles_manager.dart';
-import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/features/tabs/home/presentation/widgets/custom_category_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/resources/assets_manager.dart';
+import '../widgets/custom_section_bar.dart';
 
 class HomeTab extends StatelessWidget {
   HomeTab({super.key});
@@ -27,32 +27,23 @@ class HomeTab extends StatelessWidget {
             enlargeCenterPage: true,
           ),
         ),
-        // SizedBox(height: 12.h),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Categories',
-                    style: getMediumStyle(
-                      fontSize: 18,
-                      color: ColorManager.darkBlue,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'view all',
-                      style: getMediumStyle(color: ColorManager.darkBlue),
-                    ),
-                  )
-                ],
+        Column(
+          children: [
+            CustomSectionBar(sectionNname: 'Categories', function: () {}),
+            SizedBox(
+              height: 275.h,
+              child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return const CustomCategoryWidget();
+                },
+                itemCount: 20,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         )
       ],
     );

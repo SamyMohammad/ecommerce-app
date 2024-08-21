@@ -11,6 +11,7 @@ class ImageAssets {
   static const String carouselSlider1 = "$imagePath/CarouselSlider1.png";
   static const String carouselSlider2 = "$imagePath/CarouselSlider2.png";
   static const String carouselSlider3 = "$imagePath/CarouselSlider3.png";
+  static const String categoryHomeImage = "$imagePath/category_image.png";
 }
 
 class IconsAssets {
