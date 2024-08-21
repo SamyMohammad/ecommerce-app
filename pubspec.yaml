@@ -7,10 +7,14 @@ environment:
   sdk: ^3.3.4
 
 dependencies:
+  cached_network_image: ^3.4.0
+  carousel_slider_plus: ^7.0.0
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
+  readmore: ^3.0.0
+  smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
   flutter_test:
