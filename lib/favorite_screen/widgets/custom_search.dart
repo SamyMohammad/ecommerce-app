@@ -18,10 +18,10 @@ class FavSearchCartRow extends StatelessWidget {
       padding: EdgeInsets.only(top: AppSize.s18.h),
       child: Row(
         children:  [
-          const Expanded(
+           Expanded(
             child: CustomTextField(
                 hintText: AppConstants.searchHint,
-                prefixIcon: ImageIcon(AssetImage(ImageAssets.searchIcon)),
+                prefixIcon: ImageIcon(const AssetImage(ImageAssets.searchIcon) , color: ColorManager.primaryDark,),
                 onChange: null),
           ),
           SizedBox(width: AppSize.s20.w),

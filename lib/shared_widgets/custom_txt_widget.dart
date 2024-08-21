@@ -23,6 +23,7 @@ class CustomTextWgt extends StatelessWidget {
     return AutoSizeText(
       
       data,
+      
       softWrap: true,
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,

@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   final void Function(String)? onChange;
-  final String? hintText ;
-    final Widget? prefixIcon ;
+  final String? hintText;
+  final Widget? prefixIcon;
 
-
-  const CustomTextField({ this.onChange, this.prefixIcon , this.hintText ,  super.key});
+  const CustomTextField(
+      {this.onChange, this.prefixIcon, this.hintText, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,31 +19,28 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.normal,
             color: ColorManager.primary),
         cursorColor: ColorManager.primary,
-        onChanged: onChange ,
+        onChanged: onChange,
         decoration: InputDecoration(
-          border: buildCustomBorder(),
-          enabledBorder: buildCustomBorder(),
-          focusedBorder: buildCustomBorder().copyWith(
-            borderSide: BorderSide(
-              color: ColorManager.primary,
-              width: AppSize.s2.toDouble(),
+            border: buildCustomBorder(),
+            enabledBorder: buildCustomBorder(),
+            focusedBorder: buildCustomBorder().copyWith(
+              borderSide: BorderSide(
+                color: ColorManager.primary,
+                width: AppSize.s2.toDouble(),
+              ),
             ),
-          ),
-          contentPadding: EdgeInsets.all(16.h),
-          hintStyle: TextStyle(
-              fontSize: AppSize.s14.sp,
-              fontWeight: FontWeight.normal,
-              color: ColorManager.primaryDark.withOpacity(.6)),
-          hintText: hintText,
-          
-          prefixIcon: prefixIcon == null ? null : Padding(
-
-            padding:  EdgeInsets.only(left: AppSize.s14.w),
-            child: 
-                  prefixIcon,
-                
-          )
-        ));
+            contentPadding: EdgeInsets.all(16.h),
+            hintStyle: TextStyle(
+                fontSize: AppSize.s14.sp,
+                fontWeight: FontWeight.normal,
+                color: ColorManager.primaryDark.withOpacity(.6)),
+            hintText: hintText,
+            prefixIcon: prefixIcon == null
+                ? null
+                : Padding(
+                    padding: EdgeInsets.only(left: AppSize.s14.w , right: AppSize.s10.w),
+                    child: prefixIcon,
+                  )));
   }
 
   OutlineInputBorder buildCustomBorder() {

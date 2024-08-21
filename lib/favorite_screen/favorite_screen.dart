@@ -17,7 +17,7 @@ class FavoriteScreen extends StatelessWidget {
       backgroundColor: ColorManager.white,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.s20.w, vertical: AppSize.s20.h),
+        padding: EdgeInsets.symmetric(horizontal: AppSize.s14.w, vertical: AppSize.s20.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

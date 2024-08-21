@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {required this.onPressed, required this.text, super.key});
+  const CustomButton({required this.onPressed, required this.text, super.key});
 
   final void Function()? onPressed;
   final String text;
@@ -15,20 +14,17 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s16.r)
-        ),
-    padding: EdgeInsets.symmetric(vertical: AppSize.s14.h , horizontal: AppSize.s10.w),
-        backgroundColor: ColorManager.primary
-      ),
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppSize.s22.r)),
+            padding: EdgeInsets.symmetric(
+                vertical: AppSize.s24.h, horizontal: AppSize.s12.w),
+            backgroundColor: ColorManager.primary),
         onPressed: onPressed,
-        child: CustomTextWgt(
-          maxLines: 1,
-          data: text,
-         fontSize: AppSize.s8.sp,
-          textStyle:
-              getRegularStyle(color: ColorManager.white )
-        ));
+        child: Text(text,
+            style: getRegularStyle(
+              color: ColorManager.white,
+              fontSize: AppSize.s14.sp,
+            )));
   }
 }

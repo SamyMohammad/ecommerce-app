@@ -13,7 +13,7 @@ class FavoriteItem extends StatelessWidget {
     super.key,
     required this.product
   });
-final  Product product ;
+final  Map<String , dynamic> product ;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,7 +21,7 @@ final  Product product ;
         //TODO: navigate to details Screen
       },
       child: Container(
-        height: AppSize.s135.h,
+        height: AppSize.s170.h,
         padding: EdgeInsets.only(right: AppSize.s8.w),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppSize.s16.r),
@@ -32,15 +32,15 @@ final  Product product ;
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(AppSize.s16.r),
-                border: Border.all(color: ColorManager.primary.withOpacity(.3))
+                border: Border.all(color: ColorManager.primary.withOpacity(.6))
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(AppSize.s16.r),
                         child: CachedNetworkImage(
                   width: AppSize.s120.w,
-                  height: AppSize.s135.h,
-                  fit: BoxFit.fill,
-                  imageUrl: product.imageUrl,
+                  height: AppSize.s170.h,
+                  fit: BoxFit.cover,
+                  imageUrl: product["imageUrl"],
                   placeholder: (context, url) => Center(
                     child: CircularProgressIndicator(
                       color: ColorManager.primary,
@@ -55,7 +55,7 @@ final  Product product ;
             ),
             Expanded(
                 child: Padding(
-                    padding: EdgeInsets.only(left: AppSize.s4.w),
+                    padding: EdgeInsets.only(left: AppSize.s8.w),
                     child:  ProductDetails(
                       product: product
                     ))),
