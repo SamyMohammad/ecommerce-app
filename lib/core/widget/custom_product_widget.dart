@@ -37,10 +37,10 @@ class CustomProductWidget extends StatelessWidget {
 
   String truncateDescription(String description) {
     List<String> words = description.split(RegExp(r'[\s-]+'));
-    if (words.length <= 3) {
+    if (words.length <= 4) {
       return description;
     } else {
-      return "${words.sublist(0, 3).join(' ')}..";
+      return "${words.sublist(0, 4).join(' ')}..";
     }
   }
 
@@ -48,13 +48,13 @@ class CustomProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width * 0.4,
-      height: height * 0.34,
+      height: height * 0.3,
       decoration: BoxDecoration(
         border: Border.all(
           color: ColorManager.primary.withOpacity(0.3),
           width: 2,
         ),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -79,7 +79,15 @@ class CustomProductWidget extends StatelessWidget {
                 //   image,
                 //   fit: BoxFit.cover,
                 // ),
-                Image.asset(image, fit: BoxFit.fill),
+                ClipRRect(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(14.r)),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                    width: width,
+                  ),
+                ),
                 Positioned(
                   top: height * 0.01,
                   right: width * 0.02,
@@ -117,15 +125,15 @@ class CustomProductWidget extends StatelessWidget {
                   Text(
                     truncateTitle(title),
                     style: getMediumStyle(
-                      color: ColorManager.primary,
-                      fontSize: 16.sp,
+                      color: ColorManager.textColor,
+                      fontSize: 14.sp,
                     ),
                   ),
                   SizedBox(height: height * 0.002),
                   Text(
                     truncateDescription(description),
                     style: getRegularStyle(
-                      color: ColorManager.primary,
+                      color: ColorManager.textColor,
                       fontSize: 14.sp,
                     ),
                   ),
@@ -136,10 +144,10 @@ class CustomProductWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "$price",
-                          style: getMediumStyle(
-                            color: ColorManager.primary,
-                            fontSize: 16.sp,
+                          "EGP $price",
+                          style: getRegularStyle(
+                            color: ColorManager.textColor,
+                            fontSize: 14.sp,
                           ),
                         ),
                         Text(
@@ -149,22 +157,20 @@ class CustomProductWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: height * 0.01),
+                  // SizedBox(height: height * 0.005),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: width * 0.3,
+                        width: width * 0.22,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: Text(
-                                "Review ($rating)",
-                                style: getRegularStyle(
-                                  color: ColorManager.primary,
-                                  fontSize: 14.sp,
-                                ),
+                            Text(
+                              "Review ($rating)",
+                              style: getRegularStyle(
+                                color: ColorManager.textColor,
+                                fontSize: 12.sp,
                               ),
                             ),
                             const Icon(
@@ -176,14 +182,20 @@ class CustomProductWidget extends StatelessWidget {
                       ),
                       const Spacer(),
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Container(
-                          height: height * 0.036,
-                          width: width * 0.08,
-                          color: Theme.of(context).primaryColor,
-                          child: const Icon(
-                            Icons.add,
-                            color: Colors.white,
+                        borderRadius: BorderRadius.circular(100),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            height: height * 0.036,
+                            width: width * 0.08,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: ColorManager.primary,
+                            ),
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
