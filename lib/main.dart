@@ -18,17 +18,16 @@ class MainApp extends StatelessWidget {
         designSize: const Size(430, 932),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) =>  MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: child,
-          onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.mainRoute,
-        ),
-        child : const Scaffold(
+        builder: (context, child) => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: child,
+              onGenerateRoute: RouteGenerator.getRoute,
+              initialRoute: Routes.productsScreenRoute,
+            ),
+        child: const Scaffold(
           body: Center(
             child: Text('Hello World!'),
           ),
-        )
-    );
+        ));
   }
 }
