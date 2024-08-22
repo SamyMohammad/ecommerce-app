@@ -16,7 +16,7 @@ class ProductCounter extends StatelessWidget {
         color: ColorManager.primary,
         borderRadius: BorderRadius.circular(24.r),
       ),
-      padding:  const EdgeInsets.all(16),
+      padding:   EdgeInsets.symmetric(horizontal: 16.w , vertical: 11.h),
       child:  Row(
         children: [
           InkWell(
