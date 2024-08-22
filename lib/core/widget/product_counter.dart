@@ -20,7 +20,7 @@ class ProductCounter extends StatelessWidget {
         color: ColorManager.primary,
         borderRadius: BorderRadius.circular(24.r),
       ),
-      padding: const EdgeInsets.all(7),
+      padding: EdgeInsets.symmetric(horizontal: 11.w, vertical: 11.h),
       child: Row(
         children: [
           InkWell(
@@ -29,6 +29,7 @@ class ProductCounter extends StatelessWidget {
               },
               child: Icon(
                 Icons.remove_circle_outline,
+                size: 20.w,
                 color: ColorManager.white,
               )),
           SizedBox(
@@ -49,6 +50,7 @@ class ProductCounter extends StatelessWidget {
               child: Icon(
                 Icons.add_circle_outline,
                 color: ColorManager.white,
+                size: 20.w,
               )),
         ],
       ),

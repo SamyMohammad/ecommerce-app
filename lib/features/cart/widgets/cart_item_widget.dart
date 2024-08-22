@@ -35,8 +35,10 @@ class CartItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Container(
-      height: isPortrait ? 135.h : 100.w,
+      height: isPortrait ? height * 0.138 : width * 0.23,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(color: ColorManager.primary.withOpacity(0.3)),
@@ -52,7 +54,7 @@ class CartItemWidget extends StatelessWidget {
           child: Image.asset(
             imagePath,
             fit: BoxFit.cover,
-            height: isPortrait ? 140.h : 100.w,
+            height: isPortrait ? height * 0.139 : width * 0.23,
             width: isPortrait ? 130.w : 165.w,
           ),
         ),
@@ -60,7 +62,10 @@ class CartItemWidget extends StatelessWidget {
         // display details product=========================
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(9),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppPadding.p8.w,
+              vertical: AppPadding.p8.h,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -85,7 +90,7 @@ class CartItemWidget extends StatelessWidget {
                       child: Image.asset(
                         IconsAssets.icDelete,
                         color: ColorManager.textColor,
-                        height: 24.h,
+                        height: 22.h,
                       ),
                     )
                   ],

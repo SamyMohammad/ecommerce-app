@@ -47,8 +47,8 @@ class CartScreen extends StatelessWidget {
               child: ListView.separated(
                 itemBuilder: (context, index) => CartItemWidget(
                   imagePath: ImageAssets.categoryCardImage,
-                  title: 'Nike Air Jordon' * 2,
-                  price: 15008487587,
+                  title: 'Nike Air Jordon',
+                  price: 1500,
                   quantity: 1,
                   onDeleteTap: () {},
                   onDecrementTap: (value) {},
@@ -58,7 +58,7 @@ class CartScreen extends StatelessWidget {
                   colorName: 'Black',
                 ),
                 separatorBuilder: (context, index) =>
-                    SizedBox(height: AppSize.s14.h),
+                    SizedBox(height: AppSize.s12.h),
                 itemCount: 2,
               ),
             ),
