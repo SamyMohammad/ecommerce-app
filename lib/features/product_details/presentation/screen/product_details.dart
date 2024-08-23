@@ -9,7 +9,6 @@ import 'package:ecommerce_app/features/product_details/presentation/widgets/prod
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_rating.dart';
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_size.dart';
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,15 +24,6 @@ class ProductDetails extends StatelessWidget {
           'Product Details',
           style: getMediumStyle(color: ColorManager.appBarTitleColor)
               .copyWith(fontSize: 20.sp),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back,
-            color: ColorManager.primary,
-          ),
         ),
         actions: [
           IconButton(
@@ -52,7 +42,7 @@ class ProductDetails extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 16.w , right: 16.w, bottom:50.h ),
+          padding: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 50.h),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             ProductSlider(items: const [
@@ -123,12 +113,17 @@ class ProductDetails extends StatelessWidget {
                                 .copyWith(fontSize: 18.sp))
                   ],
                 ),
-                SizedBox(width: 33.w,),
+                SizedBox(
+                  width: 33.w,
+                ),
                 Expanded(
                   child: CustomElevatedButton(
-                      data: 'Add to cart',
-                      onTap: (){},
-                    prefixIcon: Icon(Icons.add_shopping_cart_outlined , color: ColorManager.white,),
+                    data: 'Add to cart',
+                    onTap: () {},
+                    prefixIcon: Icon(
+                      Icons.add_shopping_cart_outlined,
+                      color: ColorManager.white,
+                    ),
                   ),
                 )
               ],

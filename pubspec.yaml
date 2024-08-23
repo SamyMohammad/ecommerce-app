@@ -13,7 +13,6 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.3
   flutter_slidable: ^3.1.1
-  cached_network_image: ^3.4.0
   auto_size_text: ^3.0.0
   colornames: ^0.1.0
   flutter_svg: ^2.0.10+1
@@ -21,7 +20,6 @@ dependencies:
   readmore: ^3.0.0
   smooth_page_indicator: ^1.2.0+3
 
-  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,12 +33,12 @@ flutter:
     - assets/icons/
     - assets/svg_images/
 
-  assets:
-    - assets/images/
+
 
   fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-.ttf
-    - assets: assets/fonts/Poppins-.ttf
+     - family: Poppins
+       fonts:
+         - asset: assets/fonts/Poppins-.ttf
+
+
 
