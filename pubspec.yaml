@@ -33,7 +33,6 @@ flutter:
     - assets/icons/
     - assets/svg_images/
 
-<<<<<<< HEAD
 
 
   fonts:
@@ -43,9 +42,3 @@ flutter:
 
 
 
-=======
-fonts:
-  family: Poppins
-  fonts:
-    - assets: assets/fonts/Poppins-.ttf
->>>>>>> 8a143fbbe2f3c9242268c40d63c838fa6770ca3c
