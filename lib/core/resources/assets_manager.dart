@@ -6,7 +6,16 @@ const String svgPath = "assets/svg_images";
 abstract class ImageAssets {
   static const String splashLogo = "$imagePath/splash_logo.png";
   static const String categoryCardImage = "$imagePath/category_card_image.png";
-  static const String subcategoryCardImage = "$imagePath/sub_category_card_image.png";
+
+  static const String subcategoryCardImage =
+      "$imagePath/sub_category_card_image.png";
+  static const String carouselSlider1 = "$imagePath/CarouselSlider1.png";
+  static const String carouselSlider2 = "$imagePath/CarouselSlider2.png";
+  static const String carouselSlider3 = "$imagePath/CarouselSlider3.png";
+  static const String categoryHomeImage = "$imagePath/category_image.jpg";
+  static const String brandHomeImage = "$imagePath/brands_section_image.png";
+  static const String productImage = "$imagePath/product_image.png";
+
   static const String rate = "$imagePath/rate.png";
   static const String routeLogo = "$imagePath/route.png";
   static const String shoppingCart = "$imagePath/shopping_cart.png";
@@ -16,7 +25,7 @@ abstract class ImageAssets {
 
 }
 
-abstract class IconsAssets{
+abstract class IconsAssets {
   static const String _icCategory = "$iconsPath/ic_category.png";
   static const String _icHome = "$iconsPath/ic_home.png";
   static const String _icProfile = "$iconsPath/ic_profile.png";
@@ -37,7 +46,7 @@ abstract class IconsAssets{
   static String get icClickedHeart =>_icClickedHeart;
 }
 
-abstract class SVGAssets{
+abstract class SVGAssets {
   static const String _routeLogo = "assets/svg_images/route_logo.svg";
 
   static String get routeLogo => _routeLogo;

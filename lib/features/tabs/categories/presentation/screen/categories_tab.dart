@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/core/widget/home_screen_app_bar.dart';
-import 'package:ecommerce_app/features/categories/presentation/widgets/categories_list.dart';
+import 'package:ecommerce_app/features/tabs/categories/presentation/widgets/categories_list.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/sub_categories_list.dart';
@@ -17,7 +17,9 @@ class CategoriesTab extends StatelessWidget {
         child: Row(
           children: [
             CategoriesList(),
-            const SizedBox(width: AppSize.s16,),
+            const SizedBox(
+              width: AppSize.s16,
+            ),
             const SubCategoriesList()
           ],
         ),
