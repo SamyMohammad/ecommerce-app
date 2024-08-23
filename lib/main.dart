@@ -12,23 +12,17 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(430, 932),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) =>  MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: child,
-          onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.homeRoute,
-        ),
-        child : const Scaffold(
-          body: Center(
-            child: Text('Hello World!'),
-          ),
-        )
+      designSize: const Size(430, 932),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: child,
+        onGenerateRoute: RouteGenerator.getRoute,
+        initialRoute: Routes.mainRoute,
+      ),
     );
   }
 }

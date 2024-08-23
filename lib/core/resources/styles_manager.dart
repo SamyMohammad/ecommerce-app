@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'font_manager.dart';
@@ -33,8 +34,7 @@ TextStyle getLightStyle(
 
 // bold style
 
-TextStyle getBoldStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
+TextStyle getBoldStyle({double fontSize = FontSize.s12, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.bold, color);
 }
 
@@ -42,5 +42,16 @@ TextStyle getBoldStyle(
 
 TextStyle getSemiBoldStyle(
     {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
+  return _getTextStyle(fontSize, FontWeightManager.semiBold, color );
 }
+
+TextStyle getTextWithLine() {
+  return TextStyle(
+    color: ColorManager.primary,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.lineThrough,
+    decorationColor: ColorManager.primary,
+  );
+}
+

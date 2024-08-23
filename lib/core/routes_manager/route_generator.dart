@@ -1,7 +1,11 @@
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/features/presentation/auth/screen/sign_in_screen/sign_in_screen.dart';
 import 'package:ecommerce_app/features/presentation/auth/screen/sign_up_screen/sign_up_screen.dart';
-import 'package:ecommerce_app/features/presentation/home/screen/home_screen.dart';
+import 'package:ecommerce_app/features/cart/screens/cart_screen.dart';
+import 'package:ecommerce_app/favorite_screen/favorite_screen.dart';
+import 'package:ecommerce_app/features/main/main_layout.dart';
+import 'package:ecommerce_app/features/products_screen/presentation/products_screen.dart';
+import 'package:ecommerce_app/features/product_details/presentation/screen/product_details.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -10,8 +14,17 @@ class RouteGenerator {
       // TODO: Add Routes
       // case Routes.loginRoute:
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.homeRoute:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+
+      case Routes.cartRoute:
+        return MaterialPageRoute(builder: (_) => CartScreen());
+      case Routes.mainRoute:
+        return MaterialPageRoute(builder: (_) => MainLayout());
+
+      case Routes.productsScreenRoute:
+        return MaterialPageRoute(builder: (_) => const ProductsScreen());
+
+      case Routes.productDetails :
+        return MaterialPageRoute(builder: (_)=>const ProductDetails());
       case Routes.signInRoute:
         return MaterialPageRoute(builder: (_) =>const SignInScreen());
       case Routes.signUpRoute:
@@ -23,11 +36,12 @@ class RouteGenerator {
 
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
-        builder: (_) => Scaffold(
-              appBar: AppBar(
-                title: const Text('No Route Found'),
-              ),
-              body: const Center(child: Text('No Route Found')),
-            ));
+      builder: (_) => Scaffold(
+        appBar: AppBar(
+          title: const Text('No Route Found'),
+        ),
+        body: const Center(child: Text('No Route Found')),
+      ),
+    );
   }
 }
