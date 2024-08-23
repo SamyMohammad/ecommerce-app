@@ -55,12 +55,3 @@ TextStyle getTextWithLine() {
   );
 }
 
-TextStyle getTextWithLine() {
-  return TextStyle(
-    color: ColorManager.primary.withOpacity(0.6),
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
-    decoration: TextDecoration.lineThrough,
-    decorationColor: ColorManager.primary,
-  );
-}

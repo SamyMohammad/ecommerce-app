@@ -9,18 +9,11 @@ abstract class ImageAssets {
   static const String subcategoryCardImage =
       "$imagePath/sub_category_card_image.png";
   static const String categoryHomeImage = "$imagePath/category_image.jpg";
-<<<<<<< HEAD
-  static const String subcategoryCardImage = "$imagePath/sub_category_card_image.png";
-=======
-  static const String subcategoryCardImage =
-      "$imagePath/sub_category_card_image.png";
   static const String carouselSlider1 = "$imagePath/CarouselSlider1.png";
   static const String carouselSlider2 = "$imagePath/CarouselSlider2.png";
   static const String carouselSlider3 = "$imagePath/CarouselSlider3.png";
-  static const String categoryHomeImage = "$imagePath/category_image.jpg";
   static const String brandHomeImage = "$imagePath/brands_section_image.png";
   static const String productImage = "$imagePath/product_image.png";
->>>>>>> 8a143fbbe2f3c9242268c40d63c838fa6770ca3c
   static const String rate = "$imagePath/rate.png";
   static const String routeLogo = "$imagePath/route.png";
   static const String shoppingCart = "$imagePath/shopping_cart.png";
