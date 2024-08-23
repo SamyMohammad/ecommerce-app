@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductDetails extends StatelessWidget {
-  const ProductDetails({required this.product, super.key});
+class WishItemDetails extends StatelessWidget {
+  const WishItemDetails({required this.product, super.key});
 
   final Map<String, dynamic> product;
 
@@ -29,7 +29,7 @@ class ProductDetails extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(right: AppSize.s10.w),
               width: AppSize.s14.w,
-              height: AppSize.s14.w,
+              height: AppSize.s14.h,
               decoration: BoxDecoration(
                   color: product["color"], shape: BoxShape.circle),
             ),
@@ -47,7 +47,7 @@ class ProductDetails extends StatelessWidget {
               textStyle: getSemiBoldStyle(
                       color: ColorManager.primaryDark, fontSize: AppSize.s18.sp)
                   .copyWith(
-                letterSpacing: 0.47,
+                letterSpacing: 0.17,
               ),
             ),
             product["salePrice"] == null
@@ -61,13 +61,15 @@ class ProductDetails extends StatelessWidget {
                         ),
                         CustomTextWgt(
                             data: 'EGP ${product["salePrice"]}',
-                            textStyle:
-                                getMediumStyle(color: ColorManager.primaryDark)
-                                    .copyWith(
-                                        letterSpacing: 0.47,
-                                        decoration: TextDecoration.lineThrough,
-                                        color: ColorManager.primaryDark,
-                                        fontSize: AppSize.s4.sp)),
+                            textStyle: getMediumStyle(
+                                    color: ColorManager.appBarTitleColor
+                                        .withOpacity(.6))
+                                .copyWith(
+                                    letterSpacing: 0.17,
+                                    decoration: TextDecoration.lineThrough,
+                                    color: ColorManager.appBarTitleColor
+                                        .withOpacity(.6),
+                                    fontSize: AppSize.s10.sp)),
                       ],
                     ),
                   ),
