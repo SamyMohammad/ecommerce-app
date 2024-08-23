@@ -54,3 +54,4 @@ TextStyle getTextWithLine() {
     decorationColor: ColorManager.primary,
   );
 }
+
