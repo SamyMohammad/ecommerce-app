@@ -19,7 +19,6 @@ abstract class ImageAssets {
 
   static const String rate = "$imagePath/rate.png";
 
-  static const String routeLogo = "$imagePath/route.png";
   static const String shoppingCart = "$imagePath/shopping_cart.png";
   static const String favoriteIcon = "$imagePath/favorite.png";
   static const String notFavoriteIcon = "$imagePath/not_favorite.png";
