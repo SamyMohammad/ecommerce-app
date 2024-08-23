@@ -42,7 +42,17 @@ TextStyle getBoldStyle({double fontSize = FontSize.s12, required Color color}) {
 
 TextStyle getSemiBoldStyle(
     {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
+  return _getTextStyle(fontSize, FontWeightManager.semiBold, color );
+}
+
+TextStyle getTextWithLine() {
+  return TextStyle(
+    color: ColorManager.primary,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.lineThrough,
+    decorationColor: ColorManager.primary,
+  );
 }
 
 TextStyle getTextWithLine() {

@@ -12,7 +12,6 @@ class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(430, 932),
