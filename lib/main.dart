@@ -10,8 +10,7 @@ void main() {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
-  @override
+  
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -22,7 +21,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: child,
           onGenerateRoute: RouteGenerator.getRoute,
-          initialRoute: Routes.cartRoute,
+          initialRoute: Routes.mainRoute,
         ),
         child : const Scaffold(
           body: Center(
