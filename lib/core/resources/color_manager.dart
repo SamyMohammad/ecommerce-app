@@ -13,11 +13,9 @@ abstract class ColorManager {
   static Color black = const Color(0xff000000);
   static Color containerGray = const Color(0xffDBE4ED);
 
-  static Color textColor = const Color(0xff06004F);
-
-  static Color darkBlue = const Color(0xff06004F);
   static const Color starRateColor = Color(0XFFFDD835);
-
+  static const Color textColor = Color(0xff06004F);
+  static Color darkBlue = const Color(0xff06004F);
   static Color yellow = const Color(0xFFFDD835);
 
   // new colors
