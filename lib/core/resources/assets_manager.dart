@@ -14,7 +14,6 @@ abstract class ImageAssets {
   static const String categoryHomeImage = "$imagePath/category_image.jpg";
   static const String brandHomeImage = "$imagePath/brands_section_image.png";
   static const String productImage = "$imagePath/product_image.png";
-  static const String subcategoryCardImage = "$imagePath/sub_category_card_image.png";0
   static const String rate = "$imagePath/rate.png";
   static const String routeLogo = "$imagePath/route.png";
   static const String shoppingCart = "$imagePath/shopping_cart.png";
