@@ -55,7 +55,7 @@ class CategoryCardItem extends StatelessWidget {
                               padding: MaterialStateProperty.all(
                                   const EdgeInsets.all(AppPadding.p12)),
                               backgroundColor:
-                                  MaterialStateProperty.all(ColorManager.primary),
+                              MaterialStateProperty.all(ColorManager.primary),
                               shape: MaterialStateProperty.all(
                                   RoundedRectangleBorder(
                                       borderRadius:

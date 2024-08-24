@@ -7,23 +7,23 @@ environment:
   sdk: ^3.3.4
 
 dependencies:
-  cached_network_image: ^3.4.0
-  carousel_slider_plus: ^7.0.0
+  cached_network_image:
+  carousel_slider_plus:
   flutter:
     sdk: flutter
-  flutter_screenutil: ^5.9.3
-  flutter_slidable: ^3.1.1
-  auto_size_text: ^3.0.0
-  colornames: ^0.1.0
-  flutter_svg: ^2.0.10+1
-  flutter_native_splash: ^2.4.1
-  readmore: ^3.0.0
-  smooth_page_indicator: ^1.2.0+3
+  flutter_screenutil:
+  flutter_slidable:
+  auto_size_text:
+  colornames:
+  flutter_svg:
+  flutter_native_splash:
+  readmore:
+  smooth_page_indicator:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints:
 
 flutter:
   generate: true

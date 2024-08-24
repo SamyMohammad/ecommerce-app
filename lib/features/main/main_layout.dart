@@ -2,6 +2,7 @@ import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/widget/home_screen_app_bar.dart';
 import 'package:ecommerce_app/features/main/categories/presentation/screen/categories_tab.dart';
+import 'package:ecommerce_app/wish_screen/wish_screen.dart';
 import 'package:ecommerce_app/features/main/favourites/screens/favourites_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class _MainLayoutState extends State<MainLayout> {
   List<Widget> tabs = [
     HomeTab(),
     const CategoriesTab(),
+    const WishScreen(),
     const FavouritesTab(),
     const CategoriesTab()
   ];
