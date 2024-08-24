@@ -9,16 +9,16 @@ class CategoriesTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
+    return const Padding(
+      padding: EdgeInsets.symmetric(
           horizontal: AppPadding.p12, vertical: AppPadding.p12),
       child: Row(
         children: [
           CategoriesList(),
-          const SizedBox(
+          SizedBox(
             width: AppSize.s16,
           ),
-          const SubCategoriesList()
+          SubCategoriesList()
         ],
       ),
     );

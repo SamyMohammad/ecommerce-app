@@ -45,7 +45,7 @@ class ProductDetails extends StatelessWidget {
           padding: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 50.h),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            ProductSlider(items: const [
+            const ProductSlider(items: [
               ProductItem(
                 imageUrl:
                     'https://assets.adidas.com/images/w_1880,f_auto,q_auto/6776024790f445b0873ee66fdcde54a1_9366/GX6544_HM3_hover.jpg',

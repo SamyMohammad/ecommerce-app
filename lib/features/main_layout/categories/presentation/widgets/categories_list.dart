@@ -4,7 +4,7 @@ import 'package:ecommerce_app/features/main_layout/categories/presentation/widge
 import 'package:flutter/material.dart';
 
 class CategoriesList extends StatefulWidget {
-  CategoriesList({super.key});
+  const CategoriesList({super.key});
 
   @override
   State<CategoriesList> createState() => _CategoriesListState();

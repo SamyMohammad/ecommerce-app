@@ -40,7 +40,7 @@ class SignInScreen extends StatelessWidget {
                 ),
                 Text(
                   'Please sign in with your mail',
-                  style: getRegularStyle(color: ColorManager.white)
+                  style: getLightStyle(color: ColorManager.white)
                       .copyWith(fontSize: FontSize.s16.sp),
                 ),
                 SizedBox(
@@ -49,7 +49,7 @@ class SignInScreen extends StatelessWidget {
                 BuildTextField(
                   backgroundColor: ColorManager.white,
                   hint: 'enter your name',
-                  label: 'user name',
+                  label: 'User name',
                   textInputType: TextInputType.emailAddress,
                   validation: AppValidators.validateEmail,
                 ),
@@ -59,7 +59,7 @@ class SignInScreen extends StatelessWidget {
                 BuildTextField(
                   hint: 'enter your password',
                   backgroundColor: ColorManager.white,
-                  label: 'password',
+                  label: 'Password',
                   validation: AppValidators.validatePassword,
                   isObscured: true,
                   textInputType: TextInputType.text,
@@ -73,7 +73,7 @@ class SignInScreen extends StatelessWidget {
                     GestureDetector(
                         onTap: () {},
                         child: Text(
-                          'forget password?',
+                          'Forget password?',
                           style: getMediumStyle(color: ColorManager.white)
                               .copyWith(fontSize: FontSize.s18.sp),
                         )),
@@ -84,27 +84,31 @@ class SignInScreen extends StatelessWidget {
                 ),
                 Center(
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width * .8,
+                    // width: MediaQuery.of(context).size.width * .8,
                     child: CustomElevatedButton(
                       // borderRadius: AppSize.s8,
+                      isStadiumBorder: false,
                       label: 'Login',
                       backgroundColor: ColorManager.white,
                       textStyle: getBoldStyle(
-                          color: ColorManager.primary, fontSize: AppSize.s20),
-                      onTap: () {},
+                          color: ColorManager.primary, fontSize: AppSize.s18),
+                      onTap: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, Routes.mainRoute, (route) => false);
+                      },
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: AppSize.s12.h,
+                  height: 30.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       'Don’t have an account?',
-                      style: getMediumStyle(color: ColorManager.white)
-                          .copyWith(fontSize: FontSize.s18.sp),
+                      style: getSemiBoldStyle(color: ColorManager.white)
+                          .copyWith(fontSize: FontSize.s16.sp),
                     ),
                     SizedBox(
                       width: AppSize.s8.w,
@@ -114,8 +118,8 @@ class SignInScreen extends StatelessWidget {
                           Navigator.pushNamed(context, Routes.signUpRoute),
                       child: Text(
                         'Create Account',
-                        style: getMediumStyle(color: ColorManager.white)
-                            .copyWith(fontSize: FontSize.s18.sp),
+                        style: getSemiBoldStyle(color: ColorManager.white)
+                            .copyWith(fontSize: FontSize.s16.sp),
                       ),
                     ),
                   ],

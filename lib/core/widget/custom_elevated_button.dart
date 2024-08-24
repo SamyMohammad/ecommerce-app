@@ -8,14 +8,18 @@ class CustomElevatedButton extends StatelessWidget {
   final Widget? suffixIcon;
   final String label;
   final Color? backgroundColor;
+  final double? radius;
   final void Function() onTap;
   final TextStyle? textStyle;
+  final bool isStadiumBorder;
 
   const CustomElevatedButton(
       {super.key,
       this.prefixIcon,
       this.textStyle,
+      this.isStadiumBorder = true,
       this.backgroundColor,
+      this.radius,
       this.suffixIcon,
       required this.label,
       required this.onTap});
@@ -24,8 +28,12 @@ class CustomElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
+          shape: isStadiumBorder
+              ? const StadiumBorder()
+              : RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(17.r)),
           backgroundColor: backgroundColor ?? ColorManager.primary,
-          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 12.h),
+          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 14.h),
         ),
         onPressed: onTap,
         child: Row(
@@ -37,8 +45,9 @@ class CustomElevatedButton extends StatelessWidget {
             ),
             Text(
               label,
-              style:textStyle?? getMediumStyle(color: ColorManager.white)
-                  .copyWith(fontSize: 20.sp),
+              style: textStyle ??
+                  getMediumStyle(color: ColorManager.white)
+                      .copyWith(fontSize: 20.sp),
             ),
             SizedBox(
               width: 27.w,

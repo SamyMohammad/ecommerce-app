@@ -6,7 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/resources/color_manager.dart';
 
 class ProductSlider extends StatefulWidget {
-  ProductSlider({super.key, required this.items, required this.initialIndex});
+  const ProductSlider({super.key, required this.items, required this.initialIndex});
   final List<Widget> items;
   final int initialIndex;
 

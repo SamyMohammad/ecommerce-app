@@ -32,22 +32,25 @@ class _MainLayoutState extends State<MainLayout> {
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-        child: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (value) => changeSelectedIndex(value),
-          backgroundColor: ColorManager.primary,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: ColorManager.primary,
-          unselectedItemColor: ColorManager.white,
-          showSelectedLabels: false, // Hide selected item labels
-          showUnselectedLabels: false, // Hide unselected item labels
-          items: [
-            // Build BottomNavigationBarItem widgets for each tab
-            CustomBottomNavBarItem(IconsAssets.icHome, "Home"),
-            CustomBottomNavBarItem(IconsAssets.icCategory, "Category"),
-            CustomBottomNavBarItem(IconsAssets.icWithList, "WishList"),
-            CustomBottomNavBarItem(IconsAssets.icProfile, "Profile"),
-          ],
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.1,
+          child: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (value) => changeSelectedIndex(value),
+            backgroundColor: ColorManager.primary,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: ColorManager.primary,
+            unselectedItemColor: ColorManager.white,
+            showSelectedLabels: false, // Hide selected item labels
+            showUnselectedLabels: false, // Hide unselected item labels
+            items: [
+              // Build BottomNavigationBarItem widgets for each tab
+              CustomBottomNavBarItem(IconsAssets.icHome, "Home"),
+              CustomBottomNavBarItem(IconsAssets.icCategory, "Category"),
+              CustomBottomNavBarItem(IconsAssets.icWithList, "WishList"),
+              CustomBottomNavBarItem(IconsAssets.icProfile, "Profile"),
+            ],
+          ),
         ),
       ),
     );

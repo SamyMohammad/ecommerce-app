@@ -13,6 +13,13 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
 
 // regular style
 
+TextStyle getLightStyle(
+    {double fontSize = FontSize.s12, required Color color}) {
+  return _getTextStyle(fontSize, FontWeightManager.light, color);
+}
+
+// regular style
+
 TextStyle getRegularStyle(
     {double fontSize = FontSize.s12, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.regular, color);
@@ -23,13 +30,6 @@ TextStyle getRegularStyle(
 TextStyle getMediumStyle(
     {double fontSize = FontSize.s12, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.medium, color);
-}
-
-// medium style
-
-TextStyle getLightStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.light, color);
 }
 
 // bold style

@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/font_manager.dart';
@@ -7,6 +6,7 @@ import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../core/widget/main_text_field.dart';
 import '../../../../core/widget/validators.dart';
 
@@ -14,10 +14,10 @@ class ProfileTab extends StatefulWidget {
   const ProfileTab({super.key});
 
   @override
-  _ProfileTabState createState() => _ProfileTabState();
+  ProfileTabState createState() => ProfileTabState();
 }
 
-class _ProfileTabState extends State<ProfileTab> {
+class ProfileTabState extends State<ProfileTab> {
   bool isFullNameReadOnly = true;
   bool isEmailReadOnly = true;
   bool isPasswordReadOnly = true;
