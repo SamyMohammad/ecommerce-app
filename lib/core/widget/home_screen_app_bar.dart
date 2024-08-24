@@ -6,7 +6,7 @@ import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
+class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeScreenAppBar({super.key});
 
   @override
@@ -23,31 +23,36 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
                 Expanded(
                   child: TextFormField(
                     cursorColor: ColorManager.primary,
-                    style: getRegularStyle(color: ColorManager.primary, fontSize: FontSize.s16),
+                    style: getRegularStyle(
+                        color: ColorManager.primary, fontSize: FontSize.s16),
                     decoration: InputDecoration(
                       focusedErrorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
-                          borderSide: BorderSide(width: AppSize.s1 , color: ColorManager.primary)
-                      ),
+                          borderSide: BorderSide(
+                              width: AppSize.s1, color: ColorManager.primary)),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
-                          borderSide: BorderSide(width: AppSize.s1 , color: ColorManager.primary)
-                      ),
-                      disabledBorder:  OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: AppSize.s1, color: ColorManager.primary)),
+                      disabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
-                          borderSide: BorderSide(width: AppSize.s1 , color: ColorManager.primary)
-                      ),
-                      focusedBorder:  OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: AppSize.s1, color: ColorManager.primary)),
+                      focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
-                          borderSide: BorderSide(width: AppSize.s1 , color: ColorManager.primary)
-                      ),
-                      errorBorder:  OutlineInputBorder(
+                          borderSide: BorderSide(
+                              width: AppSize.s1, color: ColorManager.primary)),
+                      errorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
-                          borderSide: BorderSide(width: AppSize.s1 ,color: ColorManager.error)
+                          borderSide: BorderSide(
+                              width: AppSize.s1, color: ColorManager.error)),
+                      prefixIcon: ImageIcon(
+                        AssetImage(IconsAssets.icSearch),
+                        color: ColorManager.primary,
                       ),
-                      prefixIcon: ImageIcon(AssetImage(IconsAssets.icSearch) , color: ColorManager.primary,),
                       hintText: "what do you search for?",
-                      hintStyle: getRegularStyle(color: ColorManager.primary, fontSize: FontSize.s16),
+                      hintStyle: getRegularStyle(
+                          color: ColorManager.primary, fontSize: FontSize.s16),
                     ),
                   ),
                 ),
@@ -60,6 +65,7 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget{
               ],
             ),
           )),
+      leading: const SizedBox.shrink(),
     );
   }
 

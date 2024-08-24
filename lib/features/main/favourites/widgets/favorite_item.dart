@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/constants_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
-import 'package:ecommerce_app/favorite_screen/widgets/product_details.dart';
+import 'package:ecommerce_app/features/main/favourites/widgets/product_details.dart';
 import 'package:ecommerce_app/shared_widgets/custom_button.dart';
 import 'package:ecommerce_app/shared_widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';

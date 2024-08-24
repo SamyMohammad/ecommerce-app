@@ -1,15 +1,13 @@
-import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/constants_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
-import 'package:ecommerce_app/favorite_screen/widgets/custom_search.dart';
-import 'package:ecommerce_app/favorite_screen/widgets/favorite_item.dart';
+import 'package:ecommerce_app/features/main/favourites/widgets/favorite_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({super.key});
+class FavouritesTab extends StatelessWidget {
+  const FavouritesTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +15,23 @@ class FavoriteScreen extends StatelessWidget {
       backgroundColor: ColorManager.white,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.s14.w, vertical: AppSize.s20.h),
+        padding: EdgeInsets.symmetric(
+            horizontal: AppSize.s14.w, vertical: AppSize.s20.h),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              ImageAssets.routeLogo,
-              height: AppSize.s28.h,
-              width: AppSize.s60.w,
-              fit: BoxFit.fill,
-            ),
-            FavSearchCartRow(
-              onTap: () {
-                //TODO:search for product in favorite list
-              },
-            ),
+            // Image.asset(
+            //   ImageAssets.routeLogo,
+            //   height: AppSize.s28.h,
+            //   width: AppSize.s60.w,
+            //   fit: BoxFit.fill,
+            // ),
+            // FavSearchCartRow(
+            //   onTap: () {
+            //     //TODO:search for product in favorite list
+            //   },
+            // ),
             SizedBox(
               height: AppSize.s8.h,
             ),

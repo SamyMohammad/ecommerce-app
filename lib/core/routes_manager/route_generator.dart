@@ -1,9 +1,8 @@
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/features/cart/screens/cart_screen.dart';
-import 'package:ecommerce_app/favorite_screen/favorite_screen.dart';
 import 'package:ecommerce_app/features/main/main_layout.dart';
-import 'package:ecommerce_app/features/products_screen/presentation/products_screen.dart';
 import 'package:ecommerce_app/features/product_details/presentation/screen/product_details.dart';
+import 'package:ecommerce_app/features/products_screen/presentation/products_screen.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -14,15 +13,15 @@ class RouteGenerator {
       // return MaterialPageRoute(builder: (_) => const LoginScreen());
 
       case Routes.cartRoute:
-        return MaterialPageRoute(builder: (_) => CartScreen());
+        return MaterialPageRoute(builder: (_) => const CartScreen());
       case Routes.mainRoute:
-        return MaterialPageRoute(builder: (_) => MainLayout());
+        return MaterialPageRoute(builder: (_) => const MainLayout());
 
       case Routes.productsScreenRoute:
         return MaterialPageRoute(builder: (_) => const ProductsScreen());
 
-      case Routes.productDetails :
-        return MaterialPageRoute(builder: (_)=>const ProductDetails());
+      case Routes.productDetails:
+        return MaterialPageRoute(builder: (_) => const ProductDetails());
       default:
         return unDefinedRoute();
     }
