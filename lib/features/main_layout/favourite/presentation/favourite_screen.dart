@@ -1,11 +1,11 @@
 import 'package:ecommerce_app/core/resources/constants_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
-import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/wish_item.dart';
+import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/favourite_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class WishScreen extends StatelessWidget {
-  const WishScreen({super.key});
+class FavouriteScreen extends StatelessWidget {
+  const FavouriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

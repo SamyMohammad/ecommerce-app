@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class WishItemDetails extends StatelessWidget {
-  const WishItemDetails({required this.product, super.key});
+class FavouriteItemDetails extends StatelessWidget {
+  const FavouriteItemDetails({required this.product, super.key});
 
   final Map<String, dynamic> product;
 

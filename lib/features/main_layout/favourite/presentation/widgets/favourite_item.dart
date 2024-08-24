@@ -2,8 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/constants_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/core/widget/heart_button.dart';
-import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/wish_item_details.dart';
+import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/favourite_item_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class FavoriteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //TODO: navigate to details Screen
+       Navigator.pushNamed(context, Routes.productDetails, arguments: product);
       },
       child: Container(
         height: AppSize.s135.h,
@@ -54,7 +55,7 @@ class FavoriteItem extends StatelessWidget {
             Expanded(
                 child: Padding(
                     padding: EdgeInsets.only(left: AppSize.s8.w),
-                    child: WishItemDetails(
+                    child: FavouriteItemDetails(
                       product: product,
                     ))),
             Column(
