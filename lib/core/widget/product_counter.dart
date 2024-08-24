@@ -20,8 +20,8 @@ class ProductCounter extends StatelessWidget {
         color: ColorManager.primary,
         borderRadius: BorderRadius.circular(24.r),
       ),
-      padding:   EdgeInsets.symmetric(horizontal: 16.w , vertical: 11.h),
-      child:  Row(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 7.h),
+      child: Row(
         children: [
           InkWell(
               onTap: () {
@@ -33,7 +33,7 @@ class ProductCounter extends StatelessWidget {
                 color: ColorManager.white,
               )),
           SizedBox(
-            width: 22.w,
+            width: 18.w,
           ),
           Text(
             '$productCounter',
@@ -41,7 +41,7 @@ class ProductCounter extends StatelessWidget {
                 .copyWith(fontSize: 18.sp),
           ),
           SizedBox(
-            width: 22.w,
+            width: 18.w,
           ),
           InkWell(
               onTap: () {

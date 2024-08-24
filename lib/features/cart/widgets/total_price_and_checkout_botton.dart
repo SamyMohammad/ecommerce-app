@@ -27,7 +27,7 @@ class TotalPriceAndCheckoutBotton extends StatelessWidget {
                 fontSize: AppSize.s18.sp,
               ),
             ),
-            SizedBox(height: 9.h),
+            SizedBox(height: 4.h),
             SizedBox(
               width: 90.w,
               child: Text(
@@ -47,7 +47,7 @@ class TotalPriceAndCheckoutBotton extends StatelessWidget {
         // Checkout button ================================
         Expanded(
           child: CustomElevatedButton(
-            data: 'Checkout',
+            label: 'Check Out',
             onTap: checkoutButtonOnTap,
             suffixIcon: Icon(
               Icons.arrow_forward,

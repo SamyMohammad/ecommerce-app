@@ -38,7 +38,7 @@ class CartItemWidget extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Container(
-      height: isPortrait ? height * 0.138 : width * 0.23,
+      height: isPortrait ? height * 0.14 : width * 0.23,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(color: ColorManager.primary.withOpacity(0.3)),
@@ -54,8 +54,8 @@ class CartItemWidget extends StatelessWidget {
           child: Image.asset(
             imagePath,
             fit: BoxFit.cover,
-            height: isPortrait ? height * 0.139 : width * 0.23,
-            width: isPortrait ? 130.w : 165.w,
+            height: isPortrait ? height * 0.142 : height * 0.23,
+            width: isPortrait ? width * 0.29 : 165.w,
           ),
         ),
         // SizedBox(width: 8.w),
@@ -79,7 +79,7 @@ class CartItemWidget extends StatelessWidget {
                         title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: getMediumStyle(
+                        style: getBoldStyle(
                           color: ColorManager.textColor,
                           fontSize: AppSize.s18.sp,
                         ),
@@ -96,15 +96,15 @@ class CartItemWidget extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 7.h),
-
+                // SizedBox(height: 7.h),
+                const Spacer(),
                 // display color and size===================
                 ColorAndSizeCartItem(
                   color: color,
                   colorName: colorName,
                   size: size,
                 ),
-                SizedBox(height: 7.h),
+                const Spacer(),
                 // display price and quantity =================
                 Row(
                   children: [
@@ -113,7 +113,7 @@ class CartItemWidget extends StatelessWidget {
                         'EGP $price',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: getMediumStyle(
+                        style: getBoldStyle(
                             color: ColorManager.textColor,
                             fontSize: AppSize.s18.sp),
                       ),

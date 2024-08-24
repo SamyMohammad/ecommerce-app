@@ -3,17 +3,27 @@ import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/font_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
+import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeScreenAppBar({super.key});
+ final bool? automaticallyImplyLeading;
+  const HomeScreenAppBar({super.key, this.automaticallyImplyLeading});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       surfaceTintColor: Colors.white,
-      title: SvgPicture.asset(SvgAssets.routeLogo),
+      automaticallyImplyLeading: automaticallyImplyLeading??false,
+      title: SvgPicture.asset(
+        SvgAssets.routeLogo,
+        height: 25.h,
+        width: 25.w,
+        colorFilter:
+            const ColorFilter.mode(ColorManager.textColor, BlendMode.srcIn),
+      ),
       bottom: PreferredSize(
           preferredSize: const Size(AppSize.s100, AppSize.s60),
           child: Padding(
@@ -26,6 +36,9 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
                     style: getRegularStyle(
                         color: ColorManager.primary, fontSize: FontSize.s16),
                     decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: AppMargin.m12.w,
+                          vertical: AppMargin.m8.h),
                       focusedErrorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10000),
                           borderSide: BorderSide(
@@ -57,7 +70,8 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        Navigator.pushNamed(context, Routes.cartRoute),
                     icon: ImageIcon(
                       AssetImage(IconsAssets.icCart),
                       color: ColorManager.primary,
@@ -65,10 +79,10 @@ class HomeScreenAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
           )),
-      leading: const SizedBox.shrink(),
+      // leading: const SizedBox.shrink(),
     );
   }
 
   @override
-  Size get preferredSize => const Size(AppSize.s100, AppSize.s100);
+  Size get preferredSize => Size(0, 130.h);
 }
