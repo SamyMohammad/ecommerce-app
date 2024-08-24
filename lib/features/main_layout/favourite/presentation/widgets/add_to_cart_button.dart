@@ -4,8 +4,8 @@ import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({required this.onPressed, required this.text, super.key});
+class AddToCartButton extends StatelessWidget {
+  const AddToCartButton({required this.onPressed, required this.text, super.key});
 
   final void Function()? onPressed;
   final String text;
