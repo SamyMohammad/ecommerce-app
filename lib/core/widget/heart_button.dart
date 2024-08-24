@@ -18,7 +18,7 @@ class _HeartButtonState extends State<HeartButton> {
     return InkWell(
       // radius: 25,
       customBorder: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(16),
       ),
       onTap: () {
         setState(() {
@@ -37,6 +37,7 @@ class _HeartButtonState extends State<HeartButton> {
         child: Padding(
             padding: const EdgeInsets.all(6),
             child: ImageIcon(
+              
               AssetImage(heartIcon),
               color: ColorManager.primary,
             )),
