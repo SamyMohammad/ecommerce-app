@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/features/main_layout/home/presentation/widgets/custom_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/assets_manager.dart';
+import 'widgets/custom_ads_widget.dart';
 import 'widgets/custom_section_bar.dart';
 
 class HomeTab extends StatefulWidget {
@@ -16,15 +16,13 @@ class HomeTab extends StatefulWidget {
 
 class _HomeTabState extends State<HomeTab> {
   int _currentIndex = 0;
-  Timer? _timer;
+  late Timer _timer;
 
   final List<String> adsImages = [
     ImageAssets.carouselSlider1,
     ImageAssets.carouselSlider2,
     ImageAssets.carouselSlider3,
   ];
-
-  int dotsIndex = 0;
 
   @override
   void initState() {
@@ -42,7 +40,7 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   void dispose() {
-    _timer?.cancel();
+    _timer.cancel();
     super.dispose();
   }
 
@@ -51,15 +49,10 @@ class _HomeTabState extends State<HomeTab> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
-            child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 1500),
-              child: Image.asset(
-                adsImages[_currentIndex],
-                key: ValueKey<int>(_currentIndex),
-              ),
-            ),
+          CustomAdsWidget(
+            adsImages: adsImages,
+            currentIndex: _currentIndex,
+            timer: _timer,
           ),
           Column(
             children: [
