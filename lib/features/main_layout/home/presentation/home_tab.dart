@@ -1,30 +1,58 @@
-import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+import 'dart:async';
 import 'package:ecommerce_app/features/main_layout/home/presentation/widgets/custom_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/assets_manager.dart';
+import 'widgets/custom_ads_widget.dart';
 import 'widgets/custom_section_bar.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  int _currentIndex = 0;
+  late Timer _timer;
+
+  final List<String> adsImages = [
+    ImageAssets.carouselSlider1,
+    ImageAssets.carouselSlider2,
+    ImageAssets.carouselSlider3,
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _startImageSwitching();
+  }
+
+  void _startImageSwitching() {
+    _timer = Timer.periodic(const Duration(milliseconds: 2500), (Timer timer) {
+      setState(() {
+        _currentIndex = (_currentIndex + 1) % adsImages.length;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CarouselSlider(
-            items: [
-              Image.asset(ImageAssets.carouselSlider1),
-              Image.asset(ImageAssets.carouselSlider2),
-              Image.asset(ImageAssets.carouselSlider3),
-            ],
-            options: CarouselOptions(
-              autoPlay: true,
-              aspectRatio: 2,
-              enlargeCenterPage: true,
-            ),
+          CustomAdsWidget(
+            adsImages: adsImages,
+            currentIndex: _currentIndex,
+            timer: _timer,
           ),
           Column(
             children: [
