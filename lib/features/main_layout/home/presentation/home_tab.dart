@@ -1,9 +1,15 @@
 import 'dart:async';
+import 'package:ecommerce_app/features/main_layout/home/presentation/manger/brand_cubit/brand_cubit.dart';
+import 'package:ecommerce_app/features/main_layout/home/presentation/manger/category_cubit/category_cubit.dart';
+import 'package:ecommerce_app/features/main_layout/home/presentation/widgets/custom_brand_widget.dart';
 import 'package:ecommerce_app/features/main_layout/home/presentation/widgets/custom_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/di/di.dart';
 import '../../../../core/resources/assets_manager.dart';
+import '../../../../core/widget/product_card.dart';
+import '../../../../domain/repos/HomeRepo/home_repo.dart';
 import 'widgets/custom_ads_widget.dart';
 import 'widgets/custom_section_bar.dart';
 
@@ -42,77 +48,93 @@ class _HomeTabState extends State<HomeTab> {
   void dispose() {
     _timer.cancel();
     super.dispose();
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          CustomAdsWidget(
-            adsImages: adsImages,
-            currentIndex: _currentIndex,
-            timer: _timer,
-          ),
-          Column(
-            children: [
-              CustomSectionBar(sectionNname: 'Categories', function: () {}),
-              SizedBox(
-                height: 270.h,
-                child: GridView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return const CustomCategoryWidget();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create:(context) =>CategoryCubit(getIt<HomeRepo>())..loadCategory() ,),
+        BlocProvider(create:(context) =>BrandCubit(getIt<HomeRepo>())..loadBrand() ,),
+
+      ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomAdsWidget(
+              adsImages: adsImages,
+              currentIndex: _currentIndex,
+              timer: _timer,
+            ),
+            Column(
+              children: [
+                CustomSectionBar(sectionNname: 'Categories', function: () {}),
+                BlocBuilder<CategoryCubit, CategoryState>(
+                  builder: (context, state) {
+
+                    if (state is CategoryError) {
+
+                      return Center(child: Text(state.errorMessage),);
+                    } else if (state is CategorySuccess) {
+
+
+                      final categories = state.category;
+                      return SizedBox(
+                        height: 270.h,
+                        child: GridView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return CustomCategoryWidget(
+                              category: categories[index],);
+                          },
+                          itemCount: state.category.length,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return const Center(child: CircularProgressIndicator(),);
+                    }
                   },
-                  itemCount: 20,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
                 ),
-              ),
-              // SizedBox(height: 12.h),
-              // CustomSectionBar(sectionNname: 'Brands', function: () {}),
-              // SizedBox(
-              //   height: 270.h,
-              //   child: GridView.builder(
-              //     scrollDirection: Axis.horizontal,
-              //     itemBuilder: (context, index) {
-              //       return const CustomBrandWidget();
-              //     },
-              //     itemCount: 20,
-              //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              //       crossAxisCount: 2,
-              //     ),
-              //   ),
-              // ),
-              // CustomSectionBar(
-              //   sectionNname: 'Most Selling Products',
-              //   function: () {},
-              // ),
-              // SizedBox(
-              //   child: SizedBox(
-              //     height: 360.h,
-              //     child: ListView.builder(
-              //       scrollDirection: Axis.horizontal,
-              //       itemBuilder: (context, index) {
-              //         return const ProductCard(
-              //           title: "Nike Air Jordon",
-              //           description:
-              //               "Nike is a multinational corporation that designs, develops, and sells athletic footwear ,apparel, and accessories",
-              //           rating: 4.5,
-              //           price: 1100,
-              //           priceBeforeDiscound: 1500,
-              //           image: ImageAssets.categoryHomeImage,
-              //         );
-              //       },
-              //       itemCount: 20,
-              //     ),
-              //   ),
-              // ),
-              SizedBox(height: 12.h),
-            ],
-          )
-        ],
+                SizedBox(height: 12.h),
+                CustomSectionBar(sectionNname: 'Brands', function: () {}),
+                BlocBuilder<BrandCubit, BrandState>(
+                  builder: (context, state) {
+                    if(state is BrandError){
+                         return Center(child: Text(state.errorMessage),);
+                    }
+                    else if(state is BrandSuccess){
+                      final brands=state.brand;
+                      return SizedBox(
+
+                        height: 270.h,
+                        child: GridView.builder(
+
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return  CustomBrandWidget(brand: brands[index],);
+                          },
+                          itemCount: brands.length,
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                          ),
+                        ),
+                      );
+
+                    }else{
+                      return const Center(child: CircularProgressIndicator(),);
+                    }
+
+                  },
+                ),
+
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

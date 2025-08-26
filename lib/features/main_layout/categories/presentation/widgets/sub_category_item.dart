@@ -1,25 +1,33 @@
+import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
+import 'package:ecommerce_app/data/model/sub_category_model/SubCategory.dart';
+import 'package:ecommerce_app/features/products_screen/presentation/screens/Products_catalog_argument.dart';
 import 'package:flutter/material.dart';
 
+
 class SubCategoryItem extends StatelessWidget {
-  final String title;
-  final String image;
+ SubCategory subCategory;
   final Function navigation;
-  const SubCategoryItem(this.title, this.image, this.navigation, {super.key});
+   SubCategoryItem(this.subCategory, this.navigation, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, Routes.productsScreenRoute),
+      onTap: () {
+        Navigator.pushNamed(context, Routes.productsScreenRoute,
+            arguments: ProductsCatalogArgument(
+                subCategory: subCategory.id
+            ));
+
+      },
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AspectRatio(
-            aspectRatio: 1,
+          Expanded(
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppSize.s12),
@@ -27,14 +35,15 @@ class SubCategoryItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(AppSize.s10),
                 child: Image.asset(
-                  image,
+                  ImageAssets.categoryCardImage,
                   fit: BoxFit.cover,
+
                 ),
               ),
             ),
           ),
           Text(
-            title,
+            subCategory.name??"",
             style: getRegularStyle(color: ColorManager.primary),
           )
         ],

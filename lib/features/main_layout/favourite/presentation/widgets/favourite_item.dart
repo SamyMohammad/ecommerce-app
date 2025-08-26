@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/resources/constants_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/core/widget/heart_button.dart';
+import 'package:ecommerce_app/data/model/products/product.dart';
 import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/add_to_cart_button.dart';
 import 'package:ecommerce_app/features/main_layout/favourite/presentation/widgets/favourite_item_details.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavoriteItem extends StatelessWidget {
   const FavoriteItem({super.key, required this.product});
-  final Map<String, dynamic> product;
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -38,7 +39,7 @@ class FavoriteItem extends StatelessWidget {
                   width: AppSize.s120.w,
                   height: AppSize.s135.h,
                   fit: BoxFit.cover,
-                  imageUrl: product["imageUrl"],
+                  imageUrl: product.imageCover??"",
                   placeholder: (context, url) => Center(
                     child: CircularProgressIndicator(
                       color: ColorManager.primary,
@@ -61,9 +62,7 @@ class FavoriteItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                HeartButton(onTap: () {
-                  //TODO:remove product from wish list
-                }),
+                HeartButton(id: product.id??"",),
                 SizedBox(height: AppSize.s14.h),
                 AddToCartButton(
                   onPressed: () {

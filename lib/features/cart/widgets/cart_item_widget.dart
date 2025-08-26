@@ -4,9 +4,15 @@ import 'package:ecommerce_app/core/resources/styles_manager.dart';
 import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/core/widget/product_counter.dart';
+import 'package:ecommerce_app/features/cart/manger/cart_cubit.dart';
 import 'package:ecommerce_app/features/cart/widgets/color_and_size_cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+import '../../../data/model/products/product.dart';
 
 class CartItemWidget extends StatelessWidget {
   const CartItemWidget({
@@ -22,6 +28,7 @@ class CartItemWidget extends StatelessWidget {
     required this.onIncrementTap,
     required this.onDecrementTap,
   });
+
   final String imagePath;
   final String title;
   final Color color;
@@ -39,7 +46,7 @@ class CartItemWidget extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, Routes.productDetails),
+      onTap: () {},
       child: Container(
         height: isPortrait ? height * 0.14 : width * 0.23,
         decoration: BoxDecoration(
@@ -54,7 +61,7 @@ class CartItemWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(15.r),
               border: Border.all(color: ColorManager.primary.withOpacity(0.3)),
             ),
-            child: Image.asset(
+            child: Image.network(
               imagePath,
               fit: BoxFit.cover,
               height: isPortrait ? height * 0.142 : height * 0.23,
@@ -89,13 +96,13 @@ class CartItemWidget extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap: onDeleteTap,
-                        child: Image.asset(
-                          IconsAssets.icDelete,
-                          color: ColorManager.textColor,
-                          height: 22.h,
-                        ),
-                      )
+                      onTap: onDeleteTap,
+                      child: Image.asset(
+                        IconsAssets.icDelete,
+                        color: ColorManager.textColor,
+                        height: 22.h,
+                      ),
+                                            )
                     ],
                   ),
 

@@ -19,13 +19,15 @@ class _MainLayoutState extends State<MainLayout> {
   int currentIndex = 0;
   List<Widget> tabs = [
     const HomeTab(),
-    const CategoriesTab(),
+     const CategoriesTab(),
     const FavouriteScreen(),
     const ProfileTab(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Color(0xFFF1F8F6),
+
       appBar: const HomeScreenAppBar(),
       extendBody: false,
       body: tabs[currentIndex],

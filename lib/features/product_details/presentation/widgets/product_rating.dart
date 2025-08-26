@@ -5,10 +5,16 @@ import 'package:ecommerce_app/core/widget/product_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../data/model/products/product.dart';
+
 class ProductRating extends StatelessWidget {
-  final String productBuyers;
-  final String productRating;
-  const ProductRating({super.key , required this.productBuyers , required this.productRating});
+  final Product product;
+  final int counter;
+  final void Function(int) onIncrement;
+  final void Function(int) onDecrement;
+  const ProductRating({super.key, required this.product, required this.counter, required this.onIncrement, required this.onDecrement});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +24,12 @@ class ProductRating extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           decoration: BoxDecoration(
             border: Border.all(
-                color: ColorManager.primary.withOpacity(.3),
-                width: 1),
+                color: ColorManager.primary.withOpacity(.3), width: 1),
             borderRadius: BorderRadius.circular(20.r),
           ),
-          padding:
-          EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
           child: Text(
-            '$productBuyers Sold',
+            '${product.sold}  Sold',
             overflow: TextOverflow.ellipsis,
             style: getMediumStyle(color: ColorManager.primary)
                 .copyWith(fontSize: 18.sp),
@@ -43,14 +47,13 @@ class ProductRating extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            productRating,
+            " ${product.ratingsAverage}",
             overflow: TextOverflow.ellipsis,
-            style:
-            getMediumStyle(color: ColorManager.appBarTitleColor)
+            style: getMediumStyle(color: ColorManager.appBarTitleColor)
                 .copyWith(fontSize: 14.sp),
           ),
         ),
-        ProductCounter(add: (_) {}, remove: (_) {}, productCounter: 1)
+        ProductCounter(add: onIncrement, remove: onDecrement, productCounter: counter)
       ],
     );
   }

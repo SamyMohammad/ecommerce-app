@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TotalPriceAndCheckoutBotton extends StatelessWidget {
   const TotalPriceAndCheckoutBotton(
       {super.key, required this.totalPrice, required this.checkoutButtonOnTap});
-  final int totalPrice;
+  final num totalPrice;
   final void Function() checkoutButtonOnTap;
   @override
   Widget build(BuildContext context) {

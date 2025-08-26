@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/core/resources/assets_manager.dart';
 import 'package:ecommerce_app/core/resources/color_manager.dart';
 import 'package:ecommerce_app/core/resources/styles_manager.dart';
+import 'package:ecommerce_app/core/routes_manager/routes.dart';
 import 'package:ecommerce_app/core/widget/custom_elevated_button.dart';
+import 'package:ecommerce_app/data/model/products/product.dart';
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_color.dart';
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_description.dart';
 import 'package:ecommerce_app/features/product_details/presentation/widgets/product_item.dart';
@@ -12,13 +14,39 @@ import 'package:ecommerce_app/features/product_details/presentation/widgets/prod
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key});
+class ProductDetails extends StatefulWidget {
+  const ProductDetails({super.key, required this.product});
+  final Product product;
+
+  @override
+  State<ProductDetails> createState() => _ProductDetailsState();
+}
+
+class _ProductDetailsState extends State<ProductDetails> {
+  int counter = 1;
+
+  void onIncrement(int x) {
+    setState(() {
+      counter = x + 1;
+    });
+  }
+
+  void onDecrement(int x) {
+    if (counter > 1) {
+      setState(() {
+        counter = x - 1;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    var totalPrice = (widget.product.priceAfterDiscount ?? 0) * counter;
+
     return Scaffold(
+      backgroundColor: ColorManager.containerGray,
       appBar: AppBar(
+        backgroundColor: ColorManager.containerGray,
         centerTitle: true,
         title: Text(
           'Product Details',
@@ -45,36 +73,34 @@ class ProductDetails extends StatelessWidget {
           padding: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 50.h),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const ProductSlider(items: [
-              ProductItem(
-                imageUrl:
-                    'https://assets.adidas.com/images/w_1880,f_auto,q_auto/6776024790f445b0873ee66fdcde54a1_9366/GX6544_HM3_hover.jpg',
-              ),
-              ProductItem(
-                imageUrl:
-                    'https://assets.adidas.com/images/w_1880,f_auto,q_auto/6776024790f445b0873ee66fdcde54a1_9366/GX6544_HM3_hover.jpg',
-              ),
-              ProductItem(
-                imageUrl:
-                    "https://assets.adidas.com/images/w_1880,f_auto,q_auto/6776024790f445b0873ee66fdcde54a1_9366/GX6544_HM3_hover.jpg",
-              )
-            ], initialIndex: 0),
+            ProductSlider(
+              items: widget.product.images!
+                  .map(
+                    (e) => ProductItem(imageUrl: e,id:widget.product.id??"" ,),
+                  )
+                  .toList(),
+              initialIndex: 0,
+            ),
             SizedBox(
               height: 24.h,
             ),
-            const ProductLabel(
-                productName: 'Nike Air Jordon', productPrice: 'EGP 3,500'),
+            ProductLabel(
+              product: widget.product,
+            ),
             SizedBox(
               height: 16.h,
             ),
-            const ProductRating(
-                productBuyers: '3,230', productRating: '4.8 (7,500)'),
+            ProductRating(
+              product: widget.product,
+              counter: counter,
+              onDecrement: onDecrement,
+              onIncrement: onIncrement,
+            ),
             SizedBox(
               height: 16.h,
             ),
-            const ProductDescription(
-                productDescription:
-                    'Nike is a multinational corporation that designs, develops, and sells athletic footwear ,apparel, and accessories'),
+            ProductDescription(
+                productDescription: widget.product.description ?? ""),
             ProductSize(
               size: const [35, 38, 39, 40],
               onSelected: () {},
@@ -107,7 +133,7 @@ class ProductDetails extends StatelessWidget {
                     SizedBox(
                       height: 12.h,
                     ),
-                    Text('EGP 3,500',
+                    Text('EGP $totalPrice',
                         style:
                             getMediumStyle(color: ColorManager.appBarTitleColor)
                                 .copyWith(fontSize: 18.sp))
@@ -119,7 +145,10 @@ class ProductDetails extends StatelessWidget {
                 Expanded(
                   child: CustomElevatedButton(
                     label: 'Add to cart',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.cartRoute,
+                          arguments: {widget.product, counter});
+                    },
                     prefixIcon: Icon(
                       Icons.add_shopping_cart_outlined,
                       color: ColorManager.white,

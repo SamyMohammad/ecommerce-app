@@ -7,7 +7,7 @@ environment:
   sdk: ^3.3.4
 
 dependencies:
-  cached_network_image:
+  cached_network_image: ^3.4.1
   carousel_slider_plus:
   flutter:
     sdk: flutter
@@ -19,6 +19,14 @@ dependencies:
   flutter_native_splash:
   readmore:
   smooth_page_indicator:
+  dio: ^5.8.0+1
+  dartz: ^0.10.1
+  bloc: ^9.0.0
+  flutter_bloc:
+  get_it: ^8.0.3
+  top_snackbar_flutter: ^3.3.0
+  shared_preferences: ^2.5.3
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

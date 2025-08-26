@@ -39,16 +39,29 @@ class CategoryItem extends StatelessWidget {
             ),
             // wrap the text with expanded to avoid overflow error
             Expanded(
-                child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: AppPadding.p16, horizontal: AppPadding.p8),
-              child: Text(
-                title,
-                textAlign: TextAlign.start,
-                style: getMediumStyle(
-                    color: ColorManager.primary, fontSize: FontSize.s14),
-              ),
-            ))
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final words = title.trim().split(RegExp(r'\s+'));
+                    final isSingleWord = words.length == 1;
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: AppPadding.p16,
+                        horizontal: AppPadding.p8,
+                      ),
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.start,
+                        maxLines: isSingleWord ? 1 : 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: getMediumStyle(
+                          color: ColorManager.primary,
+                          fontSize: FontSize.s14,
+                        ),
+                      ),
+                    );
+                  },
+                ),)
           ],
         ),
       ),

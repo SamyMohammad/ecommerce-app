@@ -6,7 +6,10 @@ import 'package:ecommerce_app/core/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/routes_manager/routes.dart';
+import '../../../../core/widget/custom_elevated_button.dart';
 import '../../../../core/widget/main_text_field.dart';
 import '../../../../core/widget/validators.dart';
 
@@ -26,6 +29,7 @@ class ProfileTabState extends State<ProfileTab> {
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p20),
       child: SafeArea(
@@ -170,6 +174,27 @@ class ProfileTabState extends State<ProfileTab> {
                     .copyWith(fontSize: 18.sp),
               ),
               SizedBox(height: AppSize.s50.h),
+              CustomElevatedButton(
+                // borderRadius: AppSize.s8,
+                isStadiumBorder: false,
+                label: 'Login',
+                backgroundColor: ColorManager.primary,
+                textStyle: getBoldStyle(
+                    color: ColorManager.white,
+                    fontSize: AppSize.s18),
+                onTap: ()async {
+                  final prefs = await SharedPreferences.getInstance();
+                  await prefs.remove("token");
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    Routes.signInRoute,
+                        (route) => false,
+                  );
+
+
+
+                },
+              ),
             ],
           ),
         ),
